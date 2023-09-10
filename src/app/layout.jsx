@@ -1,4 +1,5 @@
-import "../styles/globals.css";
+import Nav from "@/components/Nav";
+import "@/styles/globals.css";
 
 export const metadata = {
 	title: "Oddity",
@@ -9,7 +10,10 @@ const RootLayout = ({ children }) => {
 	return (
 		<html lang="en">
 			<body>
-				<main className="app">{children}</main>
+				<main className="app">
+					<Nav />
+					{children}
+				</main>
 			</body>
 		</html>
 	);
