@@ -1,3 +1,5 @@
+import "../styles/globals.css";
+
 export const metadata = {
 	title: "Oddity",
 	description: "Place bets on your favorite sports events.",
@@ -7,7 +9,7 @@ const RootLayout = ({ children }) => {
 	return (
 		<html lang="en">
 			<body>
-				<main>{children}</main>
+				<main className="app">{children}</main>
 			</body>
 		</html>
 	);
