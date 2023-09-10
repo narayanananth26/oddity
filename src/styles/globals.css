@@ -5,12 +5,17 @@
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar {
+	width: 0; /* Remove scrollbar space */
+	background: transparent; /* Optional: just make scrollbar invisible */
+}
+
 .app {
 	@apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
 }
 
-.navbar {
-	@apply flex-between w-full mb-16  pt-3;
+.banner {
+	@apply w-screen h-screen bg-no-repeat bg-[url('/assets/banner.webp')]  bg-cover;
 }
 
 .flex-center {
