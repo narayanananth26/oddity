@@ -11,15 +11,17 @@ const SignIn = () => {
 		signIn("credentials", { email, password });
 	};
 	return (
-		<div className="flex flex-col flex-between">
-			<form onSubmit={handleSubmit} className="flex flex-col">
-				<input type="email" placeholder="email" required />
-				<input type="password" placeholder="password" required />
-				<button>Login</button>
-			</form>
-			<button onClick={() => signIn("google")}>
-				Continue with Google
-			</button>
+		<div className="flex justify-center items-center h-screen">
+			<div className="flex flex-col flex-between">
+				<form onSubmit={handleSubmit} className="flex flex-col">
+					<input type="email" placeholder="email" required />
+					<input type="password" placeholder="password" required />
+					<button>Login</button>
+				</form>
+				<button onClick={() => signIn("google")}>
+					Continue with Google
+				</button>
+			</div>
 		</div>
 	);
 };

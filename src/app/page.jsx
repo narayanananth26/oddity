@@ -1,11 +1,10 @@
 const Home = () => {
 	return (
-		<>
-			<div className="banner flex-center">
-				<h2 className="">IPL Game 70: RCB vs GT</h2>
-				<h3 className="">IPL Game 70: RCB vs GT</h3>
-			</div>
-		</>
+		<div>
+			<div className="bg-black h-screen"></div>
+			<div className="h-screen bg-red-700"></div>
+			<div className="bg-green-700 h-screen"></div>
+		</div>
 	);
 };
 

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Nav = () => {
 	return (
-		<nav className="flex-between w-full font-oswald text-lg uppercase px-3 py-2">
+		<nav className="flex-between w-full font-oswald text-lg uppercase px-10 py-2">
 			<div className="flex-between w-1/3">
 				<p>Events</p>
 				<p>News</p>
