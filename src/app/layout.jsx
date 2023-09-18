@@ -13,10 +13,10 @@ const RootLayout = ({ children }) => {
 		<html lang="en">
 			<body>
 				<AuthProvider>
-					<main className="app">
+					<div className="app">
 						<Nav />
-						{children}
-					</main>
+						<main className="container">{children}</main>
+					</div>
 				</AuthProvider>
 			</body>
 		</html>

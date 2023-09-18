@@ -11,8 +11,8 @@ const SignIn = () => {
 		signIn("credentials", { email, password });
 	};
 	return (
-		<div>
-			<form onSubmit={handleSubmit}>
+		<div className="flex flex-col flex-between">
+			<form onSubmit={handleSubmit} className="flex flex-col">
 				<input type="email" placeholder="email" required />
 				<input type="password" placeholder="password" required />
 				<button>Login</button>
