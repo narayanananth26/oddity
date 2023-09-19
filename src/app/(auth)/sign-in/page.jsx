@@ -48,7 +48,7 @@ const SignIn = () => {
 
 					<a
 						href="#"
-						className="text-sm underline text-slate-500 hover:text-red-600"
+						className="text-sm text-slate-500 hover:text-red-700 hover:underline"
 					>
 						Forgot password?
 					</a>
@@ -66,7 +66,7 @@ const SignIn = () => {
 							e.preventDefault();
 							signIn("google");
 						}}
-						className="flex-center gap-2 border border-slate-400 rounded-lg  px-10 hover:bg-slate-100 hover:border-white text-xl"
+						className="flex-center gap-2 border border-slate-400 rounded-lg  px-10 hover:bg-slate-100 hover:border-white text-xl active:bg-white active:border-slate-400"
 					>
 						<Image
 							src="/assets/google-logo.svg"
@@ -78,7 +78,7 @@ const SignIn = () => {
 						<span className="py-1">Continue with Google</span>
 					</button>
 
-					<p className="text-sm">
+					<p className="text-md">
 						Not yet a member?{" "}
 						<Link
 							href="/register"

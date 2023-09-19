@@ -94,7 +94,7 @@ const Register = () => {
 						Register
 					</button>
 
-					<p className="text-sm">
+					<p className="text-md">
 						Already a member?{" "}
 						<Link
 							href="/sign-in"
