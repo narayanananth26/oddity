@@ -22,6 +22,10 @@
 	@apply my-0 mx-auto flex flex-col;
 }
 
+.input {
+	@apply focus:outline-none focus:border-none focus:ring focus:ring-slate-200 transition-all placeholder:text-slate-500 rounded-sm;
+}
+
 .flex-center {
 	@apply flex justify-center items-center;
 }
