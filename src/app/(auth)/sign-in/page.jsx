@@ -15,16 +15,19 @@ const SignIn = () => {
 	};
 	return (
 		<div className="flex-center h-auto">
-			<div className="flex flex-col flex-between  rounded font-oswald px-5 py-10 mt-16">
-				<form onSubmit={handleSubmit} className="flex flex-col gap-3">
+			<div className="flex flex-col flex-between  rounded font-oswald px-5 py-10 mt-16 w-80">
+				<form
+					onSubmit={handleSubmit}
+					className="flex flex-col gap-3 w-full"
+				>
 					<div className="flex gap-2">
 						<div className="flex-center">
 							<HiUser />
 						</div>
 
 						<input
-							type="email"
-							placeholder="Email"
+							type="text"
+							placeholder="Email or Username"
 							required
 							className="input border-slate-400 border-b py-1 px-2 w-full"
 						/>
@@ -49,7 +52,7 @@ const SignIn = () => {
 					>
 						Forgot password?
 					</a>
-					<button className="bg-red-600 rounded-lg py-1 hover:bg-red-800 text-white active:bg-red-600 text-xl mt-5">
+					<button className="uppercase bg-red-600 rounded-lg py-1 hover:bg-red-800 text-white active:bg-red-600 text-xl mt-5">
 						Login
 					</button>
 					<div className="inline-flex items-center justify-center w-full">
