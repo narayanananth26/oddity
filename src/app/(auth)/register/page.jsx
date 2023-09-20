@@ -7,7 +7,7 @@ import { useState } from "react";
 import { HiLockClosed, HiMiniEnvelope, HiUser } from "react-icons/hi2";
 
 const Register = () => {
-	const [error, setError] = useState(false);
+	const [, setError] = useState(false);
 	const router = useRouter();
 
 	const handleSubmit = async (e) => {
@@ -36,16 +36,6 @@ const Register = () => {
 	};
 
 	return (
-		// <div>
-		// 	<form onSubmit={handleSubmit}>
-		// 		<input type="text" placeholder="username" required />
-		// 		<input type="email" placeholder="email" required />
-		// 		<input type="password" placeholder="password" required />
-		// 		<button>Register</button>
-		// 	</form>
-		// 	{error && "Something went wrong!"}
-		// 	<Link href="/sign-in ">Login with and existing account</Link>
-		// </div>
 		<div className="flex-center h-auto">
 			<div className="flex flex-col flex-between  rounded font-oswald px-5 py-10 mt-16 w-80">
 				<form

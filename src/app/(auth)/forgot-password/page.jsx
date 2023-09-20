@@ -1,17 +1,35 @@
 "use client";
-import { signIn } from "next-auth/react";
-import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { HiUser, HiLockClosed } from "react-icons/hi2";
+import { useState } from "react";
+import { HiUser } from "react-icons/hi2";
 
 const ForgotPassword = () => {
-	const router = useRouter();
+	const [emailSent, setEmailSent] = useState(false);
+	const [error, setError] = useState(null);
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 
 		const email = e.target[0].value;
+		try {
+			const res = await fetch("/api/auth/forgot-password", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({ email }),
+			});
+
+			if (res.ok) {
+				setEmailSent(true);
+			} else {
+				const data = await res.json();
+				setError(data.message);
+			}
+		} catch (error) {
+			console.error(error);
+			setError("An error occurred");
+		}
 	};
 	return (
 		<div className="flex-center h-auto">
