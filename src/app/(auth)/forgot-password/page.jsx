@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 import { HiUser, HiLockClosed } from "react-icons/hi2";
 
 const ForgotPassword = () => {
+	const router = useRouter();
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
@@ -34,9 +36,12 @@ const ForgotPassword = () => {
 					<button className="uppercase bg-red-600 rounded-lg py-1 hover:bg-red-800 text-white active:bg-red-600 text-xl mt-5">
 						Next
 					</button>
-					<button className="flex-center gap-2 border border-slate-400 rounded-lg  px-10 hover:bg-slate-100 hover:border-white text-xl active:bg-white active:border-slate-400">
+					<Link
+						href="/sign-in"
+						className="flex-center gap-2 border border-slate-400 rounded-lg  px-10 hover:bg-slate-100 hover:border-white text-xl active:bg-white active:border-slate-400"
+					>
 						Back
-					</button>
+					</Link>
 				</form>
 			</div>
 		</div>
