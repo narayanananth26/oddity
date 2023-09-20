@@ -48,7 +48,7 @@ const SignIn = () => {
 
 					<a
 						href="#"
-						className="text-sm text-slate-500 hover:text-red-700 hover:underline"
+						className="text-sm text-red-600 hover:text-red-700 hover:underline"
 					>
 						Forgot password?
 					</a>
