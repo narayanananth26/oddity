@@ -16,7 +16,6 @@ export const POST = async (req) => {
 				status: 400,
 			});
 		}
-
 		// Generate a unique reset token
 		const resetToken = crypto.randomBytes(32).toString("hex");
 		user.resetPasswordToken = resetToken;
