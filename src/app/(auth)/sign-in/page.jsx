@@ -46,12 +46,12 @@ const SignIn = () => {
 						/>
 					</div>
 
-					<a
-						href="#"
+					<Link
+						href="/forgot-password"
 						className="text-sm text-red-600 hover:text-red-700 hover:underline"
 					>
 						Forgot password?
-					</a>
+					</Link>
 					<button className="uppercase bg-red-600 rounded-lg py-1 hover:bg-red-800 text-white active:bg-red-600 text-xl mt-5">
 						Login
 					</button>
