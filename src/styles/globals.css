@@ -10,18 +10,6 @@
 	background: transparent;
 }
 
-.layout {
-	@apply flex flex-col h-screen;
-}
-
-.main {
-	@apply overflow-scroll;
-}
-
-.container {
-	@apply my-0 mx-auto flex flex-col;
-}
-
 .flex-center {
 	@apply flex justify-center items-center;
 }

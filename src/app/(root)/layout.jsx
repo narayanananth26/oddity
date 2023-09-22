@@ -13,10 +13,12 @@ const RootLayout = ({ children }) => {
 		<html lang="en">
 			<body>
 				<AuthProvider>
-					<div className="layout">
+					<div className="flex flex-col h-screen">
 						<Nav />
-						<div className="main">
-							<div className="container">{children}</div>
+						<div className="overflow-scroll">
+							<div className="my-0 mx-auto flex flex-col">
+								{children}
+							</div>
 						</div>
 					</div>
 				</AuthProvider>
