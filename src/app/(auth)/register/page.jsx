@@ -8,6 +8,8 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { userValidation } from "@utils/validations/user";
 import InputField from "@components/Form/InputField";
 import InputError from "@components/Form/InputError";
+import FormLayout from "@components/Form/FormLayout";
+import FormField from "@components/Form/FormField";
 
 const Register = () => {
 	const [, setError] = useState(false);
@@ -46,66 +48,50 @@ const Register = () => {
 		}
 	};
 
-	const initialValues = {
-		username: "",
-		email: "",
-		password: "",
-	};
-
 	return (
-		<div className="flex-center h-auto">
-			<div className="rounded font-oswald px-5 py-10 mt-16 w-80">
-				<Formik
-					initialValues={initialValues}
-					validationSchema={userValidation}
-					onSubmit={handleSubmit}
+		<FormLayout
+			initialValues={{
+				username: "",
+				email: "",
+				password: "",
+			}}
+			validationSchema={userValidation}
+			onSubmit={handleSubmit}
+		>
+			<FormField
+				label={<HiUser />}
+				type="text"
+				name="username"
+				placeholder="Username"
+			/>
+			<FormField
+				label={<HiMiniEnvelope />}
+				type="email"
+				name="email"
+				placeholder="Email"
+			/>
+			<FormField
+				label={<HiLockClosed />}
+				type="password"
+				name="password"
+				placeholder="Password"
+			/>
+			<button
+				type="submit"
+				className="uppercase bg-red-600 rounded-lg py-1 hover:bg-red-800 text-white active:bg-red-600 text-xl mt-5"
+			>
+				Register
+			</button>
+			<p className="text-md">
+				Already a member?{" "}
+				<Link
+					href="/sign-in"
+					className="text-red-600 hover:underline hover:text-red-700"
 				>
-					<Form className="flex flex-col gap-3 w-full">
-						<div className="flex gap-2">
-							<label htmlFor="username" className="flex-center">
-								<HiUser />
-							</label>
-							<div className="flex flex-col gap-0.5 w-full">
-								<InputField
-									type="text"
-									name="username"
-									placeholder="Username"
-								/>
-								<InputError name="username" />
-							</div>
-						</div>
-
-						<div className="flex gap-2">
-							<label htmlFor="email" className="flex-center">
-								<HiMiniEnvelope />
-							</label>
-							<div className="flex flex-col gap-0.5 w-full">
-								<InputField
-									type="email"
-									name="email"
-									placeholder="Email"
-								/>
-								<InputError name="email" />
-							</div>
-						</div>
-
-						<div className="flex gap-2">
-							<label htmlFor="email" className="flex-center">
-								<HiLockClosed />
-							</label>
-							<div className="flex flex-col gap-0.5 w-full">
-								<InputField
-									type="password"
-									name="password"
-									placeholder="Password"
-								/>
-								<InputError name="password" />
-							</div>
-						</div>
-					</Form>
-				</Formik>
-			</div>
-		</div>
+					Sign in
+				</Link>
+			</p>
+		</FormLayout>
 	);
 };
 
