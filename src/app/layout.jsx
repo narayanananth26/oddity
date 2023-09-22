@@ -1,6 +1,6 @@
 import Nav from "@/components/Nav";
 import "@/styles/globals.css";
-import Provider from "@context/AuthContext";
+import AuthProvider from "@context/AuthContext";
 ("@components/AuthProvider/AuthProvider");
 
 export const metadata = {
@@ -12,14 +12,14 @@ const RootLayout = ({ children }) => {
 	return (
 		<html lang="en">
 			<body>
-				<Provider>
+				<AuthProvider>
 					<div className="layout">
 						<Nav />
 						<div className="main">
 							<div className="container">{children}</div>
 						</div>
 					</div>
-				</Provider>
+				</AuthProvider>
 			</body>
 		</html>
 	);
