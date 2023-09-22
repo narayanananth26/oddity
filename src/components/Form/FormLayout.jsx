@@ -14,7 +14,7 @@ const FormLayout = ({
 					validationSchema={validationSchema}
 					onSubmit={onSubmit}
 				>
-					<Form className="flex flex-col gap-3 w-full">
+					<Form className="flex flex-col gap-4 w-full">
 						{children}
 					</Form>
 				</Formik>
