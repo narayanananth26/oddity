@@ -29,7 +29,15 @@ const Register = () => {
 				}),
 			});
 
-			res.status === 201 && router.push("/sign-in?success=true");
+			console.log(res);
+
+			if (res.status === 201) router.push("/sign-in?success=true");
+			else {
+				const data = await res.json();
+				console.log(data);
+			}
+
+			// res.status === 201 && router.push("/sign-in?success=true");
 		} catch (err) {
 			setError(false);
 		}

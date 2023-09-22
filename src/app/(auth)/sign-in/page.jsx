@@ -2,9 +2,11 @@
 import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { HiUser, HiLockClosed } from "react-icons/hi2";
 
 const SignIn = () => {
+	const router = useRouter();
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
@@ -12,6 +14,7 @@ const SignIn = () => {
 		const password = e.target[1].value;
 
 		signIn("credentials", { email, password });
+		router.push("/");
 	};
 	return (
 		<div className="flex-center h-auto">

@@ -3,25 +3,47 @@ import { connectToDB } from "@utils/database";
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 
-export const POST = async (req) => {
-	const { name, email, password } = await req.json();
-	await connectToDB();
+export default async function handler(req) {
+	if (req.method !== "POST")
+		return NextResponse.error("Method not allowed", 405);
 
-	const hashedPassword = await bcrypt.hash(password, 5);
+	const { username, email, password } = req.body;
+	if (!username || !email || !password) {
+		return NextResponse.error("All fields are required.", 400);
+	}
 
-	const newUser = new User({
-		name,
-		email,
-		password: hashedPassword,
-	});
 	try {
+		await connectToDB();
+
+		// Check if a user with entered email or password already exists
+		const existingUser = await User.findOne({
+			$or: [{ username, email }],
+		});
+
+		if (existingUser) {
+			if (existingUser.email === email)
+				return NextResponse.error("Email is already in use.", 400);
+			if (existingUser.username === username)
+				return NextResponse.error("Username is already in use.", 400);
+		}
+
+		// Create new user
+		const hashedPassword = await bcrypt.hash(password, 10);
+
+		const newUser = new User({
+			username,
+			email,
+			password: hashedPassword,
+		});
+
+		// Persist newUser in db
 		await newUser.save();
-		return new NextResponse("User has been created", {
-			status: 201,
+
+		return NextResponse.created({
+			message: "User registered successfully.",
 		});
 	} catch (error) {
-		return new NextResponse(err.message, {
-			status: 500,
-		});
+		console.error("Error registering user:", error);
+		return NextResponse.error("Internal server error.", 500);
 	}
-};
+}
