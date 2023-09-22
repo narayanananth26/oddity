@@ -1,10 +1,10 @@
 import { Form, Formik } from "formik";
 
 const FormLayout = ({
-	children,
 	initialValues,
 	validationSchema,
 	onSubmit,
+	children,
 }) => {
 	return (
 		<div className="flex-center h-auto">
