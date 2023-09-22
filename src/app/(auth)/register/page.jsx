@@ -11,6 +11,7 @@ import InputError from "@components/Form/InputError";
 import FormLayout from "@components/Form/FormLayout";
 import FormField from "@components/Form/FormField";
 import Button from "@components/UI/Button";
+import RedirectTo from "@components/UI/RedirectTo";
 
 const Register = () => {
 	const [, setError] = useState(false);
@@ -78,15 +79,11 @@ const Register = () => {
 				placeholder="Password"
 			/>
 			<Button style="primary">Register</Button>
-			<p className="text-md">
-				Already a member?{" "}
-				<Link
-					href="/sign-in"
-					className="text-red-600 hover:underline hover:text-red-700"
-				>
-					Sign in
-				</Link>
-			</p>
+			<RedirectTo
+				question="Already a member?"
+				redirectTo="Sign In"
+				redirectToLink="/sign-in"
+			/>
 		</FormLayout>
 	);
 };
