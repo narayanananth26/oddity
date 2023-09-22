@@ -18,7 +18,7 @@ const SignIn = () => {
 	};
 	return (
 		<div className="flex-center h-auto">
-			<div className="flex flex-col flex-between  rounded font-oswald px-5 py-10 mt-16 w-80">
+			<div className="flex flex-col flex-between font-oswald px-5 py-10 mt-16 w-80">
 				<form
 					onSubmit={handleSubmit}
 					className="flex flex-col gap-3 w-full"
