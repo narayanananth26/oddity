@@ -102,22 +102,6 @@ const Register = () => {
 								<InputError name="password" />
 							</div>
 						</div>
-
-						<button
-							type="submit"
-							className="uppercase bg-red-600 rounded-lg py-1 hover:bg-red-800 text-white active:bg-red-600 text-xl mt-5"
-						>
-							Register
-						</button>
-						<p className="text-md">
-							Already a member?{" "}
-							<Link
-								href="/sign-in"
-								className="text-red-600 hover:underline hover:text-red-700"
-							>
-								Sign in
-							</Link>
-						</p>
 					</Form>
 				</Formik>
 			</div>
