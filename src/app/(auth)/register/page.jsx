@@ -10,6 +10,7 @@ import InputField from "@components/Form/InputField";
 import InputError from "@components/Form/InputError";
 import FormLayout from "@components/Form/FormLayout";
 import FormField from "@components/Form/FormField";
+import Button from "@components/UI/Button";
 
 const Register = () => {
 	const [, setError] = useState(false);
@@ -76,12 +77,7 @@ const Register = () => {
 				name="password"
 				placeholder="Password"
 			/>
-			<button
-				type="submit"
-				className="uppercase bg-red-600 rounded-lg py-1 hover:bg-red-800 text-white active:bg-red-600 text-xl mt-5"
-			>
-				Register
-			</button>
+			<Button style="primary">Register</Button>
 			<p className="text-md">
 				Already a member?{" "}
 				<Link
