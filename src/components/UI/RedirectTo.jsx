@@ -1,14 +1,14 @@
 import Link from "next/link";
 
-const RedirectTo = ({ question, redirectToLink, redirectTo }) => {
+const RedirectTo = ({ text, linkText, redirectTo }) => {
 	return (
 		<p className="text-md">
-			{question}{" "}
+			{text}{" "}
 			<Link
-				href={redirectToLink}
+				href={redirectTo}
 				className="text-red-600 hover:underline hover:text-red-700"
 			>
-				{redirectTo}
+				{linkText}
 			</Link>
 		</p>
 	);

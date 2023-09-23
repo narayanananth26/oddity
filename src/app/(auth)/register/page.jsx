@@ -1,13 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { HiLockClosed, HiMiniEnvelope, HiUser } from "react-icons/hi2";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import { userValidation } from "@utils/validations/user";
-import InputField from "@components/Form/InputField";
-import InputError from "@components/Form/InputError";
+import { registerValidation } from "@utils/validations/userValidation";
 import FormLayout from "@components/Form/FormLayout";
 import FormField from "@components/Form/FormField";
 import Button from "@components/UI/Button";
@@ -52,7 +48,7 @@ const Register = () => {
 				email: "",
 				password: "",
 			}}
-			validationSchema={userValidation}
+			validationSchema={registerValidation}
 			onSubmit={handleSubmit}
 		>
 			<FormField

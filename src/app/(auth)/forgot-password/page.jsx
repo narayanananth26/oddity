@@ -2,7 +2,7 @@
 import FormField from "@components/Form/FormField";
 import FormLayout from "@components/Form/FormLayout";
 import Button from "@components/UI/Button";
-import { userValidation } from "@utils/validations/user";
+import { userValidation } from "@utils/validations/userValidation";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
