@@ -7,7 +7,7 @@ import RedirectTo from "@components/UI/RedirectTo";
 import {
 	signInValidation,
 	userValidation,
-} from "@utils/validations/userValidation";
+} from "@utils/validations/authValidation";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
 import { HiUser, HiLockClosed } from "react-icons/hi2";
@@ -56,7 +56,7 @@ const SignIn = () => {
 				style="secondary"
 				onClick={(e) => {
 					e.preventDefault();
-					signIn("google");
+					signIn("google", { callbackUrl: "/" });
 				}}
 			>
 				<Image

@@ -14,7 +14,7 @@ export const registerValidation = Yup.object({
 		.matches(/[0-9]/, "Password must contain at least one number")
 		.matches(
 			/[!@#$%^&*(),.?":{}|<>]/,
-			'Password must contain at least one special character (!@#$%^&*(),.?":{}|<>)'
+			"Password must contain at least one special character"
 		)
 		.required("Password is required"),
 });
@@ -24,4 +24,10 @@ export const signInValidation = Yup.object({
 		.email("Invalid email address")
 		.required("Email is required"),
 	password: Yup.string().required("Password is required"),
+});
+
+export const forgotPasswordValidation = Yup.object({
+	email: Yup.string()
+		.email("Invalid email address")
+		.required("Email is required"),
 });

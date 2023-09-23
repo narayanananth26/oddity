@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { HiLockClosed, HiMiniEnvelope, HiUser } from "react-icons/hi2";
-import { registerValidation } from "@utils/validations/userValidation";
+import { registerValidation } from "@utils/validations/authValidation";
 import FormLayout from "@components/Form/FormLayout";
 import FormField from "@components/Form/FormField";
 import Button from "@components/UI/Button";

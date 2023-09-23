@@ -29,7 +29,7 @@ export const POST = async (req) => {
 		await transporter.sendMail({
 			...mailOptions,
 			subject: "Password Reset",
-			text: `You are receiving this email because you (or someone else) has requested a password reset for your account. Please click on the following link to reset your password: ${resetLink}. If you did not request this, please ignore this email, and your password will remain unchanged.`,
+			text: `You are receiving this email because you (or someone else) has requested a password reset for your account. Please click on the following link to reset your password: \n${resetLink}\nIf you did not request this, please ignore this email, and your password will remain unchanged.`,
 		});
 
 		return new NextResponse("Password reset email sent", {

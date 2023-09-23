@@ -2,8 +2,7 @@
 import FormField from "@components/Form/FormField";
 import FormLayout from "@components/Form/FormLayout";
 import Button from "@components/UI/Button";
-import { userValidation } from "@utils/validations/userValidation";
-import Link from "next/link";
+import { forgotPasswordValidation } from "@utils/validations/authValidation";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { HiMiniEnvelope } from "react-icons/hi2";
@@ -14,10 +13,7 @@ const ForgotPassword = () => {
 	const [emailSent, setEmailSent] = useState(false);
 	const [error, setError] = useState(null);
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-
-		const email = e.target[0].value;
+	const handleSubmit = async ({ email }) => {
 		try {
 			const res = await fetch("/api/auth/forgot-password", {
 				method: "POST",
@@ -72,7 +68,7 @@ const ForgotPassword = () => {
 		// </div>
 		<FormLayout
 			initialValues={{ email: "" }}
-			validationSchema={userValidation}
+			validationSchema={forgotPasswordValidation}
 			onSubmit={handleSubmit}
 		>
 			<FormField
@@ -81,13 +77,16 @@ const ForgotPassword = () => {
 				name="email"
 				placeholder="Email"
 			/>
-			<Button style="primary">Continue</Button>
+			<Button type="submit" style="primary">
+				Continue
+			</Button>
 			<Button
+				type="button"
+				style="secondary"
 				onClick={(e) => {
 					e.preventDefault();
 					router.back();
 				}}
-				style="secondary"
 			>
 				Go back
 			</Button>
