@@ -5,9 +5,11 @@ import Button from "@components/UI/Button";
 import Or from "@components/UI/Or";
 import RedirectTo from "@components/UI/RedirectTo";
 import {
-	signInValidation,
-	userValidation,
-} from "@utils/validations/authValidation";
+	forgotPasswordLink,
+	homeLink,
+	registerLink,
+} from "@utils/constants/links";
+import { signInValidation } from "@utils/validations/authValidation";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
 import { HiUser, HiLockClosed } from "react-icons/hi2";
@@ -16,7 +18,11 @@ const SignIn = () => {
 	const handleSubmit = async ({ email, password }) => {
 		console.log(email, password);
 		try {
-			await signIn("credentials", { email, password, callbackUrl: "/" });
+			await signIn("credentials", {
+				email,
+				password,
+				callbackUrl: homeLink,
+			});
 		} catch (error) {
 			console.log(error.message);
 		}
@@ -45,7 +51,7 @@ const SignIn = () => {
 			/>
 			<RedirectTo
 				linkText="Forgot password?"
-				redirectTo="/forgot-password"
+				redirectTo={forgotPasswordLink}
 			/>
 			<Button type="submit" style="primary">
 				Sign In
@@ -56,7 +62,7 @@ const SignIn = () => {
 				style="secondary"
 				onClick={(e) => {
 					e.preventDefault();
-					signIn("google", { callbackUrl: "/" });
+					signIn("google", { callbackUrl: homeLink });
 				}}
 			>
 				<Image
@@ -71,7 +77,7 @@ const SignIn = () => {
 			<RedirectTo
 				text="Not yet a member?"
 				linkText="Register here"
-				redirectTo="/register"
+				redirectTo={registerLink}
 			/>
 		</FormLayout>
 	);

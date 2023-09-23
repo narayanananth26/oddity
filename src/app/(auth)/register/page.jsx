@@ -8,6 +8,7 @@ import FormLayout from "@components/Form/FormLayout";
 import FormField from "@components/Form/FormField";
 import Button from "@components/UI/Button";
 import RedirectTo from "@components/UI/RedirectTo";
+import { registerLink, signInLink } from "@utils/constants/links";
 
 const Register = () => {
 	const [, setError] = useState(false);
@@ -15,7 +16,7 @@ const Register = () => {
 
 	const handleSubmit = async ({ username, email, password }) => {
 		try {
-			const res = await fetch("/api/auth/register", {
+			const res = await fetch(`/api/auth/${registerLink}`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -27,15 +28,11 @@ const Register = () => {
 				}),
 			});
 
-			// 	console.log(res);
-
-			if (res.status === 201) router.push("/sign-in?success=true");
+			if (res.status === 201) router.push(`${signInLink}?success=true`);
 			else {
 				const data = await res.json();
 				console.log(data);
 			}
-
-			// 	// res.status === 201 && router.push("/sign-in?success=true");
 		} catch (err) {
 			setError(false);
 		}
@@ -75,7 +72,7 @@ const Register = () => {
 			<RedirectTo
 				question="Already a member?"
 				redirectTo="Sign In"
-				redirectToLink="/sign-in"
+				redirectToLink={signInLink}
 			/>
 		</FormLayout>
 	);

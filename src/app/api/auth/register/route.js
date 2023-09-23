@@ -10,19 +10,20 @@ export const POST = async (request) => {
 
 		const hashedPassword = await bcrypt.hash(password, 5);
 
-		const newUser = new User({
+		const newUser = {
 			username,
 			email,
 			password: hashedPassword,
-		});
+		};
 		console.log(newUser);
 
-		await newUser.save();
+		await User.create(newUser);
 
 		return new NextResponse("User has been created", {
 			status: 201,
 		});
 	} catch (err) {
+		console.log(err);
 		return new NextResponse(err.message, {
 			status: 500,
 		});
