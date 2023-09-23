@@ -1,4 +1,4 @@
-const Button = ({ onClick, style, children }) => {
+const Button = ({ onClick, type, style, children }) => {
 	let btnStyle = "";
 
 	if (style === "primary")
@@ -11,7 +11,7 @@ const Button = ({ onClick, style, children }) => {
 	// "flex-center gap-2 border border-slate-400 rounded-lg  px-10 hover:bg-slate-100 hover:border-white text-xl active:bg-white active:border-slate-400"
 
 	return (
-		<button onClick={onClick} className={btnStyle}>
+		<button type={type} onClick={onClick} className={btnStyle}>
 			{children}
 		</button>
 	);

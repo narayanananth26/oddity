@@ -17,12 +17,7 @@ const Register = () => {
 	const [, setError] = useState(false);
 	const router = useRouter();
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-		const name = e.target[0].value;
-		const email = e.target[1].value;
-		const password = e.target[2].value;
-
+	const handleSubmit = async ({ username, email, password }) => {
 		try {
 			const res = await fetch("/api/auth/register", {
 				method: "POST",
@@ -30,13 +25,13 @@ const Register = () => {
 					"Content-Type": "application/json",
 				},
 				body: JSON.stringify({
-					name,
+					username,
 					email,
 					password,
 				}),
 			});
 
-			console.log(res);
+			// 	console.log(res);
 
 			if (res.status === 201) router.push("/sign-in?success=true");
 			else {
@@ -44,7 +39,7 @@ const Register = () => {
 				console.log(data);
 			}
 
-			// res.status === 201 && router.push("/sign-in?success=true");
+			// 	// res.status === 201 && router.push("/sign-in?success=true");
 		} catch (err) {
 			setError(false);
 		}
@@ -78,7 +73,9 @@ const Register = () => {
 				name="password"
 				placeholder="Password"
 			/>
-			<Button style="primary">Register</Button>
+			<Button type="submit" style="primary">
+				Register
+			</Button>
 			<RedirectTo
 				question="Already a member?"
 				redirectTo="Sign In"
