@@ -1,4 +1,4 @@
-import { connectToDB } from "@utils/database";
+import { connectToDB } from "@utils/mongodb";
 import User from "@models/User";
 import { NextResponse } from "next/server";
 import crypto from "crypto";

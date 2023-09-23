@@ -1,5 +1,5 @@
 import User from "@models/User";
-import { connectToDB } from "@utils/database";
+import { connectToDB } from "@utils/mongodb";
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
