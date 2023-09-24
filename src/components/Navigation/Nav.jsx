@@ -1,7 +1,12 @@
+import LogoBanner from "./LogoBanner";
+import NavLeft from "./NavLeft";
+import NavRight from "./NavRight";
+
 const Nav = () => {
 	return (
-		<nav className="bg-white w-full h-1/2">
+		<nav className="bg-transparent w-full flex-between">
 			<NavLeft />
+			<LogoBanner />
 			<NavRight />
 		</nav>
 	);

@@ -1,6 +1,7 @@
-import Nav from "@/components/Nav";
+import Nav from "@components/Navigation/Nav";
 import "@/styles/globals.css";
 import AuthProvider from "@context/AuthContext";
+import LogoBanner from "@components/Navigation/LogoBanner";
 ("@components/AuthProvider/AuthProvider");
 
 export const metadata = {
