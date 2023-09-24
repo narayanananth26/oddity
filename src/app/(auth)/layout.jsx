@@ -1,4 +1,3 @@
-import Nav from "@/components/Nav";
 import "@/styles/globals.css";
 import AuthProvider from "@context/AuthContext";
 ("@components/AuthProvider/AuthProvider");

@@ -11,6 +11,10 @@
 	background: transparent; */
 }
 
+.container {
+	@apply max-w-screen-xl min-h-screen flex flex-col;
+}
+
 .flex-center {
 	@apply flex justify-center items-center;
 }
