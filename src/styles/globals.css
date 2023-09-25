@@ -11,16 +11,12 @@
 	background: transparent; */
 }
 
-.container {
-	@apply max-w-screen-xl min-h-screen flex flex-col;
-}
-
 .flex-center {
 	@apply flex justify-center items-center;
 }
 
 .flex-start {
-	@apply flex justify-start items-start;
+	@apply flex justify-start items-center;
 }
 
 .flex-end {

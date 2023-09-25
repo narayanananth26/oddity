@@ -9,7 +9,7 @@ export const leftNavLinks = [
 		label: "Events",
 	},
 	{
-		route: "/",
+		route: "/athletes",
 		label: "Athletes",
 	},
 ];

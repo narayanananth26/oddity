@@ -14,9 +14,9 @@ const RootLayout = ({ children }) => {
 		<html lang="en">
 			<body>
 				<AuthProvider>
-					<div className="container h-screen overflow-hidden">
+					<div className="max-w-screen-xl min-h-screen flex flex-col h-screen overflow-hidden font-oswald">
 						<Nav />
-						<main className="container h-1/2 overflow-x-hidden overflow-y-scroll scrollbar-thin scrollbar-thumb-red-500 scrollbar-track-red-100">
+						<main className="overflow-x-hidden overflow-y-scroll scrollbar-thin scrollbar-thumb-red-500 scrollbar-track-red-100">
 							{children}
 						</main>
 					</div>
