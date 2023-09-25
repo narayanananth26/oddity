@@ -1,8 +1,8 @@
 const Or = () => {
 	return (
-		<div className="inline-flex items-center justify-center w-full">
-			<hr className="w-full h-px my-3 bg-gray-200 border-0" />
-			<span className="absolute px-3 font-medium -translate-x-1/2 text-slate-500 bg-white left-1/2">
+		<div className="flex-between relative my-3">
+			<span className="border-b-2 border-slate-300 w-full h-0" />
+			<span className="text-slate-500 absolute right-1/2 translate-x-1/2 z-50 bg-white px-3">
 				or
 			</span>
 		</div>
