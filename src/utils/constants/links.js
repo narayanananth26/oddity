@@ -13,3 +13,18 @@ export const leftNavLinks = [
 		label: "Athletes",
 	},
 ];
+
+export const rightNavLinks = [
+	{
+		route: "/news",
+		label: "News",
+	},
+	{
+		route: "/sportsbook",
+		label: "Sportsbook",
+	},
+	{
+		route: "/sign-in",
+		label: "Sign in",
+	},
+];

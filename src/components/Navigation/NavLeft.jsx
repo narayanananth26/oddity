@@ -1,8 +1,8 @@
 "use client";
 
 import { leftNavLinks } from "@utils/constants/links";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
+import NavLink from "./NavLink";
 
 const NavLeft = () => {
 	const pathname = usePathname();
@@ -12,19 +12,7 @@ const NavLeft = () => {
 				const isActive =
 					(pathname.includes(link.route) && link.route.length > 1) ||
 					pathname === link.route;
-				return (
-					<Link
-						key={index}
-						href={link.route}
-						className={`flex-center px-3 py-3 rounded uppercase underline-offset-4  hover:underline ${
-							isActive
-								? "text-white bg-red-500 hover:text-white"
-								: "hover:text-red-500"
-						}`}
-					>
-						{link.label}
-					</Link>
-				);
+				return <NavLink key={index} link={link} isActive={isActive} />;
 			})}
 		</div>
 	);
