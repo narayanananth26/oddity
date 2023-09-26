@@ -1,18 +1,22 @@
 export const authTexts = [
 	{
 		route: "/sign-in",
-		message: "Ready to Score Big?",
+		text: "Ready to Score Big?",
+		title: "Sign in to ODDITY",
 	},
 	{
 		route: "/register",
-		message: "Ready to Score Big?",
+		text: "Join the Winning Team!",
+		title: "Create an ODDITY account",
 	},
 	{
 		route: "/forgot-password",
-		message: "Ready to Score Big?",
+		text: "Lost Your Betting Mojo?",
+		title: "Forgot your password?",
 	},
 	{
 		route: "/reset-password",
-		message: "Ready to Score Big?",
+		text: "Get Back in the Game!",
+		title: "Create a new password",
 	},
 ];

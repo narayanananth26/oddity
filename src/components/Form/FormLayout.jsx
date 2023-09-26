@@ -8,7 +8,7 @@ const FormLayout = ({
 }) => {
 	return (
 		<div className="flex-center h-auto">
-			<div className="rounded font-oswald px-5 py-10 mt-16 w-80">
+			<div className="rounded px-5 py-10 w-80">
 				<Formik
 					initialValues={initialValues}
 					validationSchema={validationSchema}

@@ -70,9 +70,9 @@ const Register = () => {
 				Register
 			</Button>
 			<RedirectTo
-				question="Already a member?"
-				redirectTo="Sign In"
-				redirectToLink={signInLink}
+				text="Already a member?"
+				linkText="Sign in"
+				redirectTo={signInLink}
 			/>
 		</FormLayout>
 	);

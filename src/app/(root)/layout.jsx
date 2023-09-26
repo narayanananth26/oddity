@@ -1,7 +1,6 @@
-import Nav from "@components/Navigation/Nav";
 import "@/styles/globals.css";
 import AuthProvider from "@context/AuthContext";
-import LogoBanner from "@components/Navigation/LogoBanner";
+import RootNav from "@components/Navigation/RootNav";
 ("@components/AuthProvider/AuthProvider");
 
 export const metadata = {
@@ -15,8 +14,8 @@ const RootLayout = ({ children }) => {
 			<body>
 				<AuthProvider>
 					<div className="max-w-screen-xl min-h-screen flex flex-col h-screen overflow-hidden font-oswald">
-						<Nav />
-						<main className="overflow-x-hidden overflow-y-scroll scrollbar-thin scrollbar-thumb-red-500 scrollbar-track-red-100">
+						<RootNav />
+						<main className="overflow-x-hidden overflow-y-scroll scrollbar-thin scrollbar-thumb-red-500 scrollbar-track-white">
 							{children}
 						</main>
 					</div>

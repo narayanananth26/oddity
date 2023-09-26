@@ -1,6 +1,8 @@
 import "@/styles/globals.css";
+import AuthText from "@components/UI/AuthText";
+import AuthTitle from "@components/UI/AuthTitle";
 import AuthProvider from "@context/AuthContext";
-("@components/AuthProvider/AuthProvider");
+import { authTexts } from "@utils/constants/authText";
 
 export const metadata = {
 	title: "Oddity",
@@ -13,8 +15,13 @@ const RootLayout = ({ children }) => {
 			<body>
 				<AuthProvider>
 					<div className="max-w-screen-xl min-h-screen grid grid-cols-2 h-screen overflow-hidden font-oswald bg-white">
-						<section className="bg-red-500">{}</section>
-						<main className="overflow-hidden">{children}</main>
+						<section className="bg-red-500 flex-center p-20">
+							<AuthText />
+						</section>
+						<main className="overflow-hidden pt-10">
+							<AuthTitle />
+							{children}
+						</main>
 					</div>
 				</AuthProvider>
 			</body>

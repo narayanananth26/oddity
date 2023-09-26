@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 const NavRight = () => {
 	const pathname = usePathname();
 	return (
-		<div className="flex-end gap-10p">
+		<div className="flex-end gap-10">
 			{rightNavLinks.map((link, index) => {
 				const isActive =
 					(pathname.includes(link.route) && link.route.length > 1) ||
