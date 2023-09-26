@@ -4,7 +4,7 @@ const UnderConstruction = () => {
 			{Array.from({ length: 100 }, (_, index) => (
 				<div
 					key={index}
-					className="font-oswald uppercase text-5xl text-white hover:text-red-500 "
+					className="font-oswald uppercase text-5xl text-red-50 hover:text-red-500 "
 				>
 					Page under construction
 				</div>
