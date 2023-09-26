@@ -21,7 +21,7 @@ const SignIn = () => {
 			await signIn("credentials", {
 				email,
 				password,
-				callbackUrl: homeLink,
+				callbackUrl: homeLink.route.route,
 			});
 		} catch (error) {
 			console.log(error.message);
@@ -51,7 +51,7 @@ const SignIn = () => {
 			/>
 			<RedirectTo
 				linkText="Forgot password?"
-				redirectTo={forgotPasswordLink}
+				redirectTo={forgotPasswordLink.route}
 			/>
 			<Button type="submit" style="primary">
 				Sign In
@@ -62,7 +62,7 @@ const SignIn = () => {
 				style="secondary"
 				onClick={(e) => {
 					e.preventDefault();
-					signIn("google", { callbackUrl: homeLink });
+					signIn("google", { callbackUrl: homeLink.route });
 				}}
 			>
 				<Image
@@ -77,7 +77,7 @@ const SignIn = () => {
 			<RedirectTo
 				text="Not yet a member?"
 				linkText="Register here"
-				redirectTo={registerLink}
+				redirectTo={registerLink.route}
 			/>
 		</FormLayout>
 	);

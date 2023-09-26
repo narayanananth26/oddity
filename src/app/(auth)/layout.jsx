@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import AuthNav from "@components/Navigation/AuthNav";
 import AuthText from "@components/UI/AuthText";
 import AuthTitle from "@components/UI/AuthTitle";
 import AuthProvider from "@context/AuthContext";
@@ -18,8 +19,8 @@ const RootLayout = ({ children }) => {
 						<section className="bg-red-500 flex-center p-20">
 							<AuthText />
 						</section>
-						<main className="overflow-hidden pt-10">
-							<AuthTitle />
+						<main className="overflow-hidden">
+							<AuthNav />
 							{children}
 						</main>
 					</div>

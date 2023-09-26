@@ -1,7 +1,5 @@
-const NavLayout = ({ children }) => {
-	return (
-		<nav className="grid grid-cols-3 py-1 px-10 text-xl">{children}</nav>
-	);
+const NavLayout = ({ className, children }) => {
+	return <nav className={`${className} py-1 px-10 text-xl`}>{children}</nav>;
 };
 
 export default NavLayout;

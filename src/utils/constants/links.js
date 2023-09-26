@@ -1,7 +1,10 @@
-export const homeLink = "/";
-export const forgotPasswordLink = "/forgot-password";
-export const signInLink = "/sign-in";
-export const registerLink = "/register";
+export const homeLink = { route: "/", label: "Home" };
+export const forgotPasswordLink = {
+	route: "/forgot-password",
+	label: "Forgot password",
+};
+export const signInLink = { route: "/sign-in", label: "Sign in" };
+export const registerLink = { route: "/register", label: "Register" };
 
 export const leftNavLinks = [
 	{

@@ -16,7 +16,7 @@ const Register = () => {
 
 	const handleSubmit = async ({ username, email, password }) => {
 		try {
-			const res = await fetch(`/api/auth/${registerLink}`, {
+			const res = await fetch(`/api/auth/${registerLink.route}`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -28,7 +28,8 @@ const Register = () => {
 				}),
 			});
 
-			if (res.status === 201) router.push(`${signInLink}?success=true`);
+			if (res.status === 201)
+				router.push(`${signInLink.route}?success=true`);
 			else {
 				const data = await res.json();
 				console.log(data);
@@ -72,7 +73,7 @@ const Register = () => {
 			<RedirectTo
 				text="Already a member?"
 				linkText="Sign in"
-				redirectTo={signInLink}
+				redirectTo={signInLink.route}
 			/>
 		</FormLayout>
 	);
