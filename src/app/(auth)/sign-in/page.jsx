@@ -21,7 +21,7 @@ const SignIn = () => {
 			await signIn("credentials", {
 				email,
 				password,
-				callbackUrl: homeLink.route.route,
+				callbackUrl: homeLink.route,
 			});
 		} catch (error) {
 			console.log(error.message);

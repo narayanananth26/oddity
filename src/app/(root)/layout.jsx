@@ -15,7 +15,7 @@ const RootLayout = ({ children }) => {
 				<AuthProvider>
 					<div className="max-w-screen-xl min-h-screen flex flex-col h-screen overflow-hidden font-oswald">
 						<RootNav />
-						<main className="overflow-x-hidden overflow-y-scroll scrollbar-thin scrollbar-thumb-red-500 scrollbar-track-white">
+						<main className="overflow-x-hidden overflow-y-scroll scrollbar-thin scrollbar-thumb-red-500 scrollbar-track-red-50">
 							{children}
 						</main>
 					</div>

@@ -11,8 +11,8 @@ const NavLinks = ({ links, pathname, className }) => {
 					<Link
 						key={index}
 						href={link.route}
-						className={`flex-center px-3 py-3 rounded uppercase hover:bg-red-800  hover:text-white active:bg-red-500 ${
-							isActive && "text-white bg-red-500"
+						className={`flex-center px-3 py-3 rounded text-2xl uppercase hover:bg-red-800  hover:text-red-50 active:bg-red-500 ${
+							isActive && "text-red-50 bg-red-500"
 						}`}
 					>
 						{link.label}
