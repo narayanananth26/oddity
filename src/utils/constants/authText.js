@@ -2,21 +2,21 @@ export const authTexts = [
 	{
 		route: "/sign-in",
 		text: "Ready to Score Big?",
-		title: "Sign in to ODDITY",
+		label: "Sign in",
 	},
 	{
 		route: "/register",
 		text: "Join the Winning Team!",
-		title: "Create an ODDITY account",
+		label: "Register",
 	},
 	{
 		route: "/forgot-password",
 		text: "Lost Your Betting Mojo?",
-		title: "Forgot your password?",
+		label: "Forgot password?",
 	},
 	{
 		route: "/reset-password",
 		text: "Get Back in the Game!",
-		title: "Create a new password",
+		label: "Reset password",
 	},
 ];

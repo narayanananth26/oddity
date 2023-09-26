@@ -13,7 +13,7 @@ const AuthText = () => {
 		)
 			text = link.text;
 	});
-	return <span className="font-medium text-9xl text-white">{text}</span>;
+	return <span className="font-medium text-9xl text-red-50">{text}</span>;
 };
 
 export default AuthText;

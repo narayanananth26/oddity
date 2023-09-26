@@ -17,12 +17,14 @@ const RootNav = () => {
 				className="flex-start gap-10"
 			/>
 
-			<Link
-				href="/"
-				className="flex-center uppercase text-red-500 text-7xl font-medium"
-			>
-				Oddity
-			</Link>
+			<div className="flex-center">
+				<Link
+					href="/"
+					className="uppercase text-red-500 text-7xl font-medium hover:text-red-800 active:text-red-500"
+				>
+					Oddity
+				</Link>
+			</div>
 
 			<NavLinks
 				pathname={pathname}

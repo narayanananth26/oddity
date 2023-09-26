@@ -6,10 +6,10 @@ import { homeLink } from "@utils/constants/links";
 
 const AuthNav = () => {
 	return (
-		<NavLayout className="flex-end mt-5">
+		<NavLayout className="flex-end mt-4">
 			<Link
 				href={homeLink.route}
-				className="px-3 py-3 rounded uppercase text-white bg-red-500 underline-offset-4  hover:underline "
+				className="px-3 py-3 rounded uppercase text-red-50 bg-red-500 hover:bg-red-800 active:bg-red-500"
 			>
 				Home
 			</Link>

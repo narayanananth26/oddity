@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const RedirectTo = ({ text, linkText, redirectTo }) => {
 	return (
-		<p className="text-md">
+		<p className="text-slate-600 text-md">
 			{text}{" "}
 			<Link
 				href={redirectTo}

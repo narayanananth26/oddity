@@ -41,7 +41,7 @@ const ForgotPassword = () => {
 			onSubmit={handleSubmit}
 		>
 			<FormField
-				label={<HiMiniEnvelope />}
+				label={<HiMiniEnvelope fill="gray" />}
 				type="email"
 				name="email"
 				placeholder="Email"

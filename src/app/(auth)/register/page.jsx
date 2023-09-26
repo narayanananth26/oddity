@@ -50,19 +50,19 @@ const Register = () => {
 			onSubmit={handleSubmit}
 		>
 			<FormField
-				label={<HiUser />}
+				label={<HiUser fill="gray" />}
 				type="text"
 				name="username"
 				placeholder="Username"
 			/>
 			<FormField
-				label={<HiMiniEnvelope />}
+				label={<HiMiniEnvelope fill="gray" />}
 				type="email"
 				name="email"
 				placeholder="Email"
 			/>
 			<FormField
-				label={<HiLockClosed />}
+				label={<HiLockClosed fill="gray" />}
 				type="password"
 				name="password"
 				placeholder="Password"

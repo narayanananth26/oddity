@@ -11,10 +11,10 @@ const AuthTitle = () => {
 			(pathname.includes(link.route) && link.route.length > 1) ||
 			pathname === link.route
 		)
-			title = link.title;
+			title = link.label;
 	});
 	return (
-		<p className="flex-center tracking-wide  text-5xl font-medium text-red-500 mb-10">
+		<p className="flex-center tracking-wider uppercase text-5xl font-semibold text-red-500 mt-5">
 			{title}
 		</p>
 	);

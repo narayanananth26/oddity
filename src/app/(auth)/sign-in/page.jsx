@@ -38,13 +38,13 @@ const SignIn = () => {
 			onSubmit={handleSubmit}
 		>
 			<FormField
-				label={<HiUser />}
+				label={<HiUser fill="gray" />}
 				type="email"
 				name="email"
 				placeholder="Email"
 			/>
 			<FormField
-				label={<HiLockClosed />}
+				label={<HiLockClosed fill="gray" />}
 				type="password"
 				name="password"
 				placeholder="Password"
