@@ -17,13 +17,8 @@ const AuthNav = () => {
 			label = link.label;
 	});
 	return (
-		<NavLayout className="flex-center">
-			<NavLinks
-				pathname={pathname}
-				links={[homeLink]}
-				positioning="flex-end"
-				active={true}
-			/>
+		<NavLayout layout="flex-end">
+			<NavLinks pathname={pathname} links={[homeLink]} active={true} />
 		</NavLayout>
 	);
 };
