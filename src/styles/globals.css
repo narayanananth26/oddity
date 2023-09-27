@@ -11,6 +11,10 @@
 	background: transparent; */
 }
 
+.text-container {
+	font-size: calc(var(--container-height)); /* Adjust the divisor as needed */
+}
+
 .flex-center {
 	@apply flex justify-center items-center;
 }

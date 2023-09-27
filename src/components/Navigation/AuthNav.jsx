@@ -1,18 +1,29 @@
 "use client";
 
-import Link from "next/link";
 import NavLayout from "./NavLayout";
 import { homeLink } from "@utils/constants/links";
+import { usePathname } from "next/navigation";
+import { authTexts } from "@utils/constants/authText";
+import NavLinks from "./NavLinks";
 
 const AuthNav = () => {
+	const pathname = usePathname();
+	let label = "";
+	authTexts.forEach((link) => {
+		if (
+			(pathname.includes(link.route) && link.route.length > 1) ||
+			pathname === link.route
+		)
+			label = link.label;
+	});
 	return (
-		<NavLayout className="flex-end mt-2">
-			<Link
-				href={homeLink.route}
-				className="px-3 py-3 rounded text-2xl uppercase text-red-50 bg-red-500 hover:bg-red-800 active:bg-red-500"
-			>
-				Home
-			</Link>
+		<NavLayout className="flex-center">
+			<NavLinks
+				pathname={pathname}
+				links={[homeLink]}
+				positioning="flex-end"
+				active={true}
+			/>
 		</NavLayout>
 	);
 };

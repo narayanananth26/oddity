@@ -4,25 +4,30 @@ import { leftNavLinks, rightNavLinks } from "@utils/constants/links";
 import { usePathname } from "next/navigation";
 import NavLinks from "./NavLinks";
 import NavLayout from "./NavLayout";
-import NavTitle from "./NavTitle";
+import Link from "next/link";
 
 const RootNav = () => {
 	const pathname = usePathname();
 
 	return (
-		<NavLayout className="grid grid-cols-3">
+		<NavLayout layout="grid grid-cols-3">
 			<NavLinks
 				pathname={pathname}
 				links={leftNavLinks}
-				className="flex-start gap-10"
+				positioning="flex-start gap-10"
 			/>
 
-			<NavTitle link={true} text="Oddity" />
+			<Link
+				href="/"
+				className="flex-center uppercase text-container text-red-500 font-medium hover:text-red-800 active:text-red-500"
+			>
+				Oddity
+			</Link>
 
 			<NavLinks
 				pathname={pathname}
 				links={rightNavLinks}
-				className="flex-end gap-10"
+				positioning="flex-end gap-10"
 			/>
 		</NavLayout>
 	);
