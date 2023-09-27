@@ -17,7 +17,7 @@ const RootNav = () => {
 				className="flex-start gap-10"
 			/>
 
-			<NavTitle link={true} text={Oddity} />
+			<NavTitle link={true} text="Oddity" />
 
 			<NavLinks
 				pathname={pathname}
