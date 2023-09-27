@@ -3,21 +3,21 @@
 import NavLayout from "./NavLayout";
 import { homeLink } from "@utils/constants/links";
 import { usePathname } from "next/navigation";
-import { authTexts } from "@utils/constants/authText";
 import NavLinks from "./NavLinks";
+import Image from "next/image";
 
 const AuthNav = () => {
 	const pathname = usePathname();
-	let label = "";
-	authTexts.forEach((link) => {
-		if (
-			(pathname.includes(link.route) && link.route.length > 1) ||
-			pathname === link.route
-		)
-			label = link.label;
-	});
 	return (
-		<NavLayout layout="flex-end">
+		<NavLayout layout="flex-between">
+			<div href="/" className="flex-center">
+				<Image
+					src="/assets/logo.png"
+					alt="Oddity logo"
+					width={150}
+					height={150}
+				/>
+			</div>
 			<NavLinks pathname={pathname} links={[homeLink]} active={true} />
 		</NavLayout>
 	);

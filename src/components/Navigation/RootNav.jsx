@@ -4,6 +4,7 @@ import { leftNavLinks, rightNavLinks } from "@utils/constants/links";
 import { usePathname } from "next/navigation";
 import NavLinks from "./NavLinks";
 import NavLayout from "./NavLayout";
+import Image from "next/image";
 import Link from "next/link";
 
 const RootNav = () => {
@@ -16,14 +17,14 @@ const RootNav = () => {
 				links={leftNavLinks}
 				positioning="flex-start gap-10"
 			/>
-
-			<Link
-				href="/"
-				className="flex-center uppercase text-container text-red-500 font-medium hover:text-red-800 active:text-red-500"
-			>
-				Oddity
+			<Link href="/" className="flex-center">
+				<Image
+					src="/assets/logo.png"
+					alt="Oddity logo"
+					width={150}
+					height={150}
+				/>
 			</Link>
-
 			<NavLinks
 				pathname={pathname}
 				links={rightNavLinks}
