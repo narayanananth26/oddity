@@ -12,17 +12,29 @@ import {
 import { signInValidation } from "@utils/validations/authValidation";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { HiUser, HiLockClosed } from "react-icons/hi2";
 
 const SignIn = () => {
-	const handleSubmit = async ({ email, password }) => {
-		console.log(email, password);
+	const router = useRouter();
+	const handleSubmit = async ({ emailOrUsername, password }) => {
+		console.log(emailOrUsername, password);
 		try {
-			await signIn("credentials", {
-				email,
+			const isEmail = emailOrUsername.includes("@");
+			const credentials = isEmail
+				? { email: emailOrUsername }
+				: { username: emailOrUsername };
+
+			const signInResponse = await signIn("credentials", {
+				...credentials,
 				password,
-				callbackUrl: homeLink.route,
 			});
+
+			if (signInResponse?.error) {
+				console.error("Authentication error:", signInResponse.error);
+			} else {
+				router.push("/");
+			}
 		} catch (error) {
 			console.log(error.message);
 		}
@@ -31,7 +43,7 @@ const SignIn = () => {
 	return (
 		<FormLayout
 			initialValues={{
-				email: "",
+				emailOrUsername: "",
 				password: "",
 			}}
 			validationSchema={signInValidation}
@@ -39,9 +51,9 @@ const SignIn = () => {
 		>
 			<FormField
 				label={<HiUser fill="gray" />}
-				type="email"
-				name="email"
-				placeholder="Email"
+				type="text"
+				name="emailOrUsername"
+				placeholder="Email or Username"
 			/>
 			<FormField
 				label={<HiLockClosed fill="gray" />}

@@ -14,15 +14,21 @@ const handler = NextAuth({
 		CredentialsProvider({
 			id: "credentials",
 			name: "Credentials",
+			credentials: {
+				username: { label: "Username", type: "text" }, // Add a username field
+				password: { label: "Password", type: "password" }, // Add a password field
+			},
 			async authorize(credentials) {
 				await connectToDB();
 				try {
+					const { username, password } = credentials;
 					const user = await User.findOne({
-						email: credentials.email,
+						$or: [{ email: username }, { username: username }],
 					});
+
 					if (user) {
 						const isPasswordCorrect = await bcrypt.compare(
-							credentials.password,
+							password,
 							user.password
 						);
 

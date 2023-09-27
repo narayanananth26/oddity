@@ -2,9 +2,9 @@
 
 import { leftNavLinks, rightNavLinks } from "@utils/constants/links";
 import { usePathname } from "next/navigation";
-import Link from "next/link";
 import NavLinks from "./NavLinks";
 import NavLayout from "./NavLayout";
+import NavTitle from "./NavTitle";
 
 const RootNav = () => {
 	const pathname = usePathname();
@@ -17,14 +17,7 @@ const RootNav = () => {
 				className="flex-start gap-10"
 			/>
 
-			<div className="flex-center">
-				<Link
-					href="/"
-					className="uppercase text-red-500 text-7xl font-medium hover:text-red-800 active:text-red-500"
-				>
-					Oddity
-				</Link>
-			</div>
+			<NavTitle link={true} text={Oddity} />
 
 			<NavLinks
 				pathname={pathname}

@@ -20,9 +20,7 @@ export const registerValidation = Yup.object({
 });
 
 export const signInValidation = Yup.object({
-	email: Yup.string()
-		.email("Invalid email address")
-		.required("Email is required"),
+	emailOrUsername: Yup.string().required("Email or username is required"),
 	password: Yup.string().required("Password is required"),
 });
 
