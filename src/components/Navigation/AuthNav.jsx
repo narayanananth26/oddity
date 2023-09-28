@@ -4,20 +4,13 @@ import NavLayout from "./NavLayout";
 import { homeLink } from "@utils/constants/links";
 import { usePathname } from "next/navigation";
 import NavLinks from "./NavLinks";
-import Image from "next/image";
+import Logo from "@components/UI/Logo";
 
 const AuthNav = () => {
 	const pathname = usePathname();
 	return (
 		<NavLayout layout="flex-between">
-			<div href="/" className="flex-center">
-				<Image
-					src="/assets/logo.png"
-					alt="Oddity logo"
-					width={150}
-					height={150}
-				/>
-			</div>
+			<Logo width={200} height={200} />
 			<NavLinks pathname={pathname} links={[homeLink]} active={true} />
 		</NavLayout>
 	);

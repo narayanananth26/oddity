@@ -6,6 +6,7 @@ import NavLinks from "./NavLinks";
 import NavLayout from "./NavLayout";
 import Image from "next/image";
 import Link from "next/link";
+import Logo from "@components/UI/Logo";
 
 const RootNav = () => {
 	const pathname = usePathname();
@@ -17,14 +18,7 @@ const RootNav = () => {
 				links={leftNavLinks}
 				positioning="flex-start gap-10"
 			/>
-			<Link href="/" className="flex-center">
-				<Image
-					src="/assets/logo.png"
-					alt="Oddity logo"
-					width={150}
-					height={150}
-				/>
-			</Link>
+			<Logo width={200} height={200} />
 			<NavLinks
 				pathname={pathname}
 				links={rightNavLinks}
