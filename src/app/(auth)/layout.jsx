@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
 import AuthNav from "@components/Navigation/AuthNav";
-import AuthText from "@components/UI/AuthText";
+import AuthText from "@components/Auth/AuthText";
 import AuthTitle from "@components/UI/AuthTitle";
 import AuthProvider from "@context/AuthContext";
 
