@@ -12,7 +12,7 @@ const RootNav = () => {
 	const pathname = usePathname();
 
 	return (
-		<NavLayout layout="grid grid-cols-3">
+		<NavLayout layout="grid grid-cols-3 absolute top-3 left-3">
 			<NavLinks
 				pathname={pathname}
 				links={leftNavLinks}
