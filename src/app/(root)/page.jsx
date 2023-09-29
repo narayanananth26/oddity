@@ -4,6 +4,7 @@ import UnderConstruction from "@components/UI/UnderConstruction";
 const Home = () => {
 	return (
 		<>
+			<ImageBanner src="/img.webp" alt="banner" />
 			<UnderConstruction />
 		</>
 	);

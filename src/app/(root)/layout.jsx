@@ -13,7 +13,7 @@ const RootLayout = ({ children }) => {
 		<html lang="en">
 			<body>
 				<AuthProvider>
-					<div className="max-w-screen-xl min-h-screen flex flex-col h-screen overflow-hidden font-oswald">
+					<div className="max-w-screen-xl min-h-screen flex flex-col h-screen font-oswald">
 						<RootNav />
 						<main className="overflow-x-hidden overflow-y-scroll scrollbar-thin scrollbar-thumb-red-500 scrollbar-track-red-50">
 							{children}

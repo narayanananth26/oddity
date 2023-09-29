@@ -1,41 +1,41 @@
 "use client";
+
 import Image from "next/image";
-import Button from "./Button";
 import { useState } from "react";
 
-const ImageBanner = ({ imageLink }) => {
-	const [hover, setHover] = useState(false);
+const ImageBanner = ({ src, alt }) => {
+	const [isHovered, setIsHovered] = useState(false);
 	return (
-		<div className="w-screen h-screen overflow-hidden relative">
-			<div
-				className={`group w-full h-full ${
-					hover &&
-					"transition-transform transform-gpu duration-500 ease-in-out hover:scale-125"
-				}`}
-			>
+		<section className="w-screen h-screen relative overflow-hidden">
+			<div className="absolute inset-0">
 				<Image
-					src={imageLink}
-					alt="Next Image"
+					src={src}
+					alt={alt}
 					layout="fill"
 					objectFit="cover"
 					objectPosition="center"
-					className="w-full h-full"
+					className={`transition-transform transform-gpu ease-in-out duration-700 ${
+						isHovered && "scale-125 bg-blend-overlay"
+					}`}
 				/>
 			</div>
+
+			{/* Overlay */}
 			<div
-				className="absolute top-1/2 right-1/2 translate-x-1/2 z-50"
-				onMouseEnter={() => {
-					console.log("in");
-					setHover(true);
-				}}
-				onMouseLeave={() => {
-					console.log("out");
-					setHover(false);
-				}}
+				className={`absolute inset-0 bg-black transition-opacity ease-in-out duration-500 ${
+					isHovered ? "opacity-50" : "opacity-0"
+				}`}
+			/>
+
+			{/* Button */}
+			<button
+				className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-6 py-3 bg-white rounded-lg shadow-lg`}
+				onMouseEnter={() => setIsHovered(true)}
+				onMouseLeave={() => setIsHovered(false)}
 			>
-				<Button style="primary">Go to page</Button>
-			</div>
-		</div>
+				Hover to Zoom
+			</button>
+		</section>
 	);
 };
 

@@ -11,8 +11,12 @@
 	background: transparent; */
 }
 
-.text-container {
-	font-size: calc(var(--container-height)); /* Adjust the divisor as needed */
+.transition-filter {
+	transition: filter 0.3s ease;
+}
+
+.filter-blur {
+	filter: blur(8px);
 }
 
 .flex-center {
