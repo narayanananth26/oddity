@@ -1,5 +1,5 @@
 import User from "@/models/User";
-import { connectToDB } from "@utils/mongodb";
+import { connectToDB } from "@utils/database/connectToMongoDB";
 import bcrypt from "bcryptjs";
 import { NextResponse } from "next/server";
 

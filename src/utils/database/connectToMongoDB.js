@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 let isConnected = false;
 
-const connectToDB = async () => {
+const connectToMongoDB = async () => {
 	try {
 		if (isConnected) {
 			console.log("MongoDB connection already established");
@@ -29,7 +29,7 @@ const connectToDB = async () => {
 mongoose.connection.on("disconnected", () => {
 	console.log("MongoDB disconnected. Reconnecting...");
 	isConnected = false;
-	setTimeout(() => connectToDB(), 5000); // Attempt reconnection after 5 seconds
+	setTimeout(() => connectToMongoDB(), 5000); // Attempt reconnection after 5 seconds
 });
 
-export { connectToDB };
+export { connectToMongoDB };
