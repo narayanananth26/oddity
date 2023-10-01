@@ -1,4 +1,4 @@
-import { connectToDB } from "@utils/database/connectToMongoDB";
+import { connectToMongoDB } from "@utils/database/connectToMongoDB";
 import User from "@models/User";
 import { NextResponse } from "next/server";
 import crypto from "crypto";
@@ -6,7 +6,7 @@ import { mailOptions, transporter } from "@utils/nodemailer";
 
 export const POST = async (req) => {
 	const { email } = await req.json();
-	await connectToDB();
+	await connectToMongoDB();
 
 	try {
 		const user = await User.findOne({ email });

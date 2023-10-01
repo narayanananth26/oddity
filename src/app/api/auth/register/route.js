@@ -1,12 +1,12 @@
 import User from "@/models/User";
-import { connectToDB } from "@utils/database/connectToMongoDB";
+import { connectToMongoDB } from "@utils/database/connectToMongoDB";
 import bcrypt from "bcryptjs";
 import { NextResponse } from "next/server";
 
 export const POST = async (request) => {
 	try {
 		const { username, email, password } = await request.json();
-		await connectToDB();
+		await connectToMongoDB();
 
 		const hashedPassword = await bcrypt.hash(password, 5);
 

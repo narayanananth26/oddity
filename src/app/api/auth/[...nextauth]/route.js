@@ -1,5 +1,5 @@
 import User from "@models/User";
-import { connectToDB } from "@utils/database/connectToMongoDB";
+import { connectToMongoDB } from "@utils/database/connectToMongoDB";
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -19,7 +19,7 @@ const handler = NextAuth({
 				password: { label: "Password", type: "password" }, // Add a password field
 			},
 			async authorize(credentials) {
-				await connectToDB();
+				await connectToMongoDB();
 				try {
 					const { username, password } = credentials;
 					const user = await User.findOne({
