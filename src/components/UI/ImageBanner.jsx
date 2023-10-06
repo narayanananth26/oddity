@@ -11,10 +11,8 @@ const ImageBanner = ({ src, alt }) => {
 				<Image
 					src={src}
 					alt={alt}
-					layout="fill"
-					objectFit="cover"
-					objectPosition="center"
-					className={`transition-transform transform-gpu ease-in-out duration-700 ${
+					fill
+					className={`transition-transform transform-gpu ease-in-out duration-700 object-cover object-center ${
 						isHovered && "scale-125 bg-blend-overlay"
 					}`}
 				/>
