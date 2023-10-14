@@ -15,6 +15,10 @@ const eventSchema = new mongoose.Schema({
 		type: Date,
 		required: [true, "Event date is required."],
 	},
+	event_time: {
+		type: Date,
+		required: [true, "Event time is required."],
+	},
 	sport: {
 		type: String,
 		required: [true, "Sport type is required."],
