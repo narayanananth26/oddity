@@ -16,7 +16,7 @@ const Register = () => {
 
 	const handleSubmit = async ({ username, email, password }) => {
 		try {
-			const res = await fetch(`/api/auth/${registerLink.route}`, {
+			const response = await fetch(`/api/auth/${registerLink.route}`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -28,13 +28,13 @@ const Register = () => {
 				}),
 			});
 
-			if (res.status === 201)
+			if (response.status === 201)
 				router.push(`${signInLink.route}?success=true`);
 			else {
-				const data = await res.json();
+				const data = await response.json();
 				console.log(data);
 			}
-		} catch (err) {
+		} catch (error) {
 			setError(false);
 		}
 	};
