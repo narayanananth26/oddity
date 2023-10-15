@@ -40,8 +40,8 @@ const handler = NextAuth({
 					} else {
 						throw new Error("User not found!");
 					}
-				} catch (err) {
-					throw new Error(err);
+				} catch (error) {
+					throw new Error(error);
 				}
 			},
 		}),
