@@ -4,8 +4,8 @@ import { NextResponse } from "next/server";
 import crypto from "crypto";
 import { mailOptions, transporter } from "@utils/nodemailer";
 
-export const POST = async (req) => {
-	const { email } = await req.json();
+export const POST = async (request) => {
+	const { email } = await request.json();
 	await connectToMongoDB();
 
 	try {
@@ -37,7 +37,7 @@ export const POST = async (req) => {
 		});
 	} catch (error) {
 		console.log(error);
-		return new NextResponse(err.message, {
+		return new NextResponse(error.message, {
 			status: 500,
 		});
 	}
