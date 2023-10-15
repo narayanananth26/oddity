@@ -4,14 +4,14 @@ import Image from "next/image";
 import { useState } from "react";
 import { HiChevronRight } from "react-icons/hi2";
 
-const ImageBanner = ({ src, alt }) => {
+const ImageBanner = ({ data }) => {
 	const [isHovered, setIsHovered] = useState(false);
 	return (
 		<section className="w-screen h-screen relative overflow-hidden">
 			<div className="absolute inset-0">
 				<Image
-					src={src}
-					alt={alt}
+					src={data.image || "/img.webp"}
+					alt={data.name || "banner"}
 					fill
 					className={`transition-transform transform-gpu ease-in-out duration-700 object-cover object-center ${
 						isHovered && "scale-125 blur-sm"
@@ -28,11 +28,10 @@ const ImageBanner = ({ src, alt }) => {
 
 			<div className="flex flex-col flex-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 gap-2">
 				<h1 className="text-5xl text-white uppercase font-bold">
-					Ind vs Aus
+					{data.description}
 				</h1>
 				<p className="text-center text-lg text-white font-bold">
-					The clash between India and Australia promises an exciting
-					battle of skills and strategy on the pitch.
+					{data.name}
 				</p>
 			</div>
 
