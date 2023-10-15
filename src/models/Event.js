@@ -80,6 +80,10 @@ const eventSchema = new mongoose.Schema({
 		ref: "Team",
 		default: null,
 	},
+	image: {
+		type: String,
+		required: [true, "Event image is required."],
+	},
 });
 
 export default mongoose.models.Event || mongoose.model("Event", eventSchema);
