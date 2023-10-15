@@ -15,7 +15,7 @@ const ForgotPassword = () => {
 
 	const handleSubmit = async ({ email }) => {
 		try {
-			const res = await fetch("/api/auth/forgot-password", {
+			const response = await fetch("/api/auth/forgot-password", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -23,10 +23,10 @@ const ForgotPassword = () => {
 				body: JSON.stringify({ email }),
 			});
 
-			if (res.ok) {
+			if (response.ok) {
 				setEmailSent(true);
 			} else {
-				const data = await res.json();
+				const data = await response.json();
 				setError(data.message);
 			}
 		} catch (error) {
