@@ -31,7 +31,7 @@ const Home = () => {
 	}
 	return (
 		<>
-			<ImageBanner src="/img.webp" alt="banner" data={event} />
+			<ImageBanner data={event} />
 			<UnderConstruction />
 		</>
 	);
