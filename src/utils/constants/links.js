@@ -1,3 +1,4 @@
+export const apiUrl = "http://localhost:3000/api";
 export const homeLink = { route: "/", label: "Home" };
 export const forgotPasswordLink = {
 	route: "/forgot-password",
