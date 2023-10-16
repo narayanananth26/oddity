@@ -4,8 +4,6 @@ import { leftNavLinks, rightNavLinks } from "@utils/constants/links";
 import { usePathname } from "next/navigation";
 import NavLinks from "./NavLinks";
 import NavLayout from "./NavLayout";
-import Image from "next/image";
-import Link from "next/link";
 import Logo from "@components/UI/Logo";
 
 const RootNav = () => {
