@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { HiChevronRight } from "react-icons/hi2";
+import { HiChevronRight, HiMapPin } from "react-icons/hi2";
 
 const ImageBanner = ({ data }) => {
 	const [isHovered, setIsHovered] = useState(false);
@@ -26,18 +26,22 @@ const ImageBanner = ({ data }) => {
 				}`}
 			/>
 
-			<div className="flex flex-col flex-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 gap-2">
-				<h1 className="text-5xl text-white uppercase font-bold">
-					{data.description}
-				</h1>
-				<p className="text-center text-lg text-white font-bold">
+			<div className="flex flex-col flex-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 gap-2 w-full">
+				<h1 className="text-xl text-white uppercase font-bold">
 					{data.name}
+				</h1>
+				<p className="text-center text-7xl uppercase text-red-500 font-bold">
+					{data.description}
+				</p>
+				<p className="flex-center gap-2 text-lg text-white uppercase font-bold">
+					<HiMapPin />
+					{data.venue?.name}
 				</p>
 			</div>
 
 			{/* Button */}
 			<button
-				className={`flex-center text-white text-7xl font-bold uppercase absolute bottom-0 left-0 transform translate-x-1/4 -translate-y-1/2 px-6 py-3 hover:text-red-500`}
+				className={`flex-center text-white text-7xl font-bold uppercase absolute bottom-0 left-0 transform translate-x-1/4 -translate-y-1/2 px-6 py-3`}
 				onMouseEnter={() => setIsHovered(true)}
 				onMouseLeave={() => setIsHovered(false)}
 			>
