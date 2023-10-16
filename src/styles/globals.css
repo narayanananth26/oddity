@@ -10,13 +10,16 @@
 	/* width: 0;
 	background: transparent; */
 }
+/*flex-center px-3 py-3 rounded text-2xl uppercase hover:underline hover:text-red-500 underline-offset-8*/
 
-.transition-filter {
-	transition: filter 0.3s ease;
+.nav {
+	@apply flex-center px-2 py-2 relative text-2xl uppercase tracking-[1px] hover:text-red-600 rounded;
 }
-
-.filter-blur {
-	filter: blur(8px);
+.nav::after {
+	@apply content-[''] bg-red-500 h-[3.5px] w-[0%] left-[3px] bottom-0 rounded-2xl absolute duration-300;
+}
+.nav:hover::after {
+	@apply w-[93%];
 }
 
 .flex-center {
