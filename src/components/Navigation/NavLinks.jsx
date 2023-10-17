@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const NavLinks = ({ links, pathname, positioning, active }) => {
+const NavLinks = ({ links, pathname, positioning}) => {
 	return (
 		<div className={positioning}>
 			{links.map((link, index) => {
@@ -12,13 +12,17 @@ const NavLinks = ({ links, pathname, positioning, active }) => {
 						key={index}
 						href={link.route}
 						className={`${
-							active && "bg-red-500 hover:bg-red-800 "
-						} active:bg-red-500 active:text-red-50 ${
-							isActive &&
-							"text-red-50 bg-red-500 hover:text-white"
-						} nav`}
+							isActive && "text-red-50 bg-red-500"
+						} rounded px-2 py-2`}
 					>
-						{link.label}
+						<span
+							className={`nav ${
+								isActive &&
+								"hover:text-red-50 hover:after:bg-red-50"
+							}`}
+						>
+							{link.label}
+						</span>
 					</Link>
 				);
 			})}
