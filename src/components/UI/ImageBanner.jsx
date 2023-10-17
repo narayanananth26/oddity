@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { HiChevronRight, HiMapPin } from "react-icons/hi2";
 
@@ -40,7 +41,8 @@ const ImageBanner = ({ data }) => {
 			</div>
 
 			{/* Button */}
-			<button
+			<Link
+				href="/sportsbook"
 				className={`flex-center text-white text-7xl font-bold uppercase absolute bottom-0 left-0 transform translate-x-1/4 -translate-y-1/2 px-6 py-3}`}
 				onMouseEnter={() => setIsHovered(true)}
 				onMouseLeave={() => setIsHovered(false)}
@@ -52,7 +54,7 @@ const ImageBanner = ({ data }) => {
 					Wager Now
 				</span>{" "}
 				<HiChevronRight />
-			</button>
+			</Link>
 		</section>
 	);
 };
