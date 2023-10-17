@@ -16,7 +16,7 @@ const AuthNav = () => {
 			<Link href="/">
 				<Button style="primary">
 					<HiArrowLeft size="1.5rem" />
-					Back to home
+					<HiHome size="2rem" />
 				</Button>
 			</Link>
 		</NavLayout>
