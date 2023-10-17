@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const NavLinks = ({ links, pathname, positioning}) => {
+const NavLinks = ({ links, pathname, positioning }) => {
 	return (
 		<div className={positioning}>
 			{links.map((link, index) => {
@@ -16,10 +16,10 @@ const NavLinks = ({ links, pathname, positioning}) => {
 						} rounded px-2 py-2`}
 					>
 						<span
-							className={`nav ${
+							className={`${
 								isActive &&
-								"hover:text-red-50 hover:after:bg-red-50"
-							}`}
+								"text-red-50 hover:text-red-50 hover:after:bg-red-50 active:text-black"
+							} flex-center relative text-2xl uppercase tracking-wider text-black pb-1 underline_animation after:bg-red-500 after:h-[3px] active:text-red-500`}
 						>
 							{link.label}
 						</span>
