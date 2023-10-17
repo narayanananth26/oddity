@@ -41,20 +41,20 @@ const ImageBanner = ({ data }) => {
 			</div>
 
 			{/* Button */}
-			<Link
-				href="/sportsbook"
-				className={`flex-center text-white text-7xl font-bold uppercase absolute bottom-0 left-0 transform translate-x-1/4 -translate-y-1/2 px-6 py-3}`}
-				onMouseEnter={() => setIsHovered(true)}
-				onMouseLeave={() => setIsHovered(false)}
+			<div
+				className={`flex-center text-white text-7xl font-bold uppercase absolute bottom-0 left-0 transform translate-x-1/4 -translate-y-1/2 px-6 py-3`}
 			>
-				<span
+				<Link
+					href="/sportsbook"
 					className="relative pb-2 underline_animation after:bg-white after:h-1
 				"
+					onMouseEnter={() => setIsHovered(true)}
+					onMouseLeave={() => setIsHovered(false)}
 				>
 					Wager Now
-				</span>{" "}
+				</Link>{" "}
 				<HiChevronRight />
-			</Link>
+			</div>
 		</section>
 	);
 };
