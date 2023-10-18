@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { HiChevronRight, HiMapPin } from "react-icons/hi2";
+import { HiChevronRight, HiMapPin, HiMiniUserGroup } from "react-icons/hi2";
 
 const ImageBanner = ({ data }) => {
 	const [isHovered, setIsHovered] = useState(false);
@@ -34,9 +34,38 @@ const ImageBanner = ({ data }) => {
 				<p className="text-center text-7xl uppercase text-red-500 font-bold">
 					{data.description}
 				</p>
+				<div className="flex-center gap-5">
+					<p className="flex-center gap-2 text-lg text-white uppercase font-bold">
+						<HiMapPin />
+						{data.venue?.name}
+					</p>
+					<p className="flex-center gap-2 text-lg text-white uppercase font-bold">
+						<HiMiniUserGroup />
+						{data.bets_placed}
+					</p>
+				</div>
 				<p className="flex-center gap-2 text-lg text-white uppercase font-bold">
-					<HiMapPin />
-					{data.venue?.name}
+					<span
+						className={`${
+							data.odds?.home_team > data.odds?.away_team
+								? 'before:content-["-"] text-red-500'
+								: 'before:content-["+"] text-green-500'
+						}`}
+					>
+						{data.odds?.home_team}
+					</span>
+					<span className="before:content-['+']">
+						{data.odds?.home_team}
+					</span>
+					<span
+						className={`${
+							data.odds?.away_team > data.odds?.home_team
+								? 'before:content-["-"] text-red-500'
+								: 'before:content-["+"] text-green-500'
+						}`}
+					>
+						{data.odds?.away_team}
+					</span>
 				</p>
 			</div>
 

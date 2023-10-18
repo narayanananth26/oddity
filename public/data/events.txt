@@ -6,9 +6,9 @@
         "home_team": "65197d412fe4afe5b7976928",
         "away_team": "65197d412fe4afe5b7976929",
         "odds": {
-            "home_team": 1.8,
-            "away_team": 2.0,
-            "draw": 2.5
+            "home_team": 125,
+            "away_team": 100,
+            "draw": 150
         },
         "venue": {
             "name": "M. A. Chidambaram Stadium",
@@ -26,9 +26,9 @@
         "home_team": "65197d412fe4afe5b797692a",
         "away_team": "65197d412fe4afe5b797692e",
         "odds": {
-            "home_team": 1.9,
-            "away_team": 2.1,
-            "draw": 2.6
+            "home_team": 111.11,
+            "away_team": 90.91,
+            "draw": 60
         },
         "venue": {
             "name": "M. Chinnaswamy Stadium",
@@ -45,9 +45,9 @@
         "home_team": "65197d412fe4afe5b797692a",
         "away_team": "65197d412fe4afe5b7976928",
         "odds": {
-            "home_team": 2.2,
-            "away_team": 2.3,
-            "draw": 2.8
+            "home_team": 120,
+            "away_team": 130,
+            "draw": 180
         },
         "venue": {
             "name": "M. Chinnaswamy Stadium",
@@ -64,9 +64,9 @@
         "home_team": "65197d412fe4afe5b797692e",
         "away_team": "65197d412fe4afe5b7976929",
         "odds": {
-            "home_team": 2.0,
-            "away_team": 1.8,
-            "draw": 2.6
+            "home_team": 100,
+            "away_team": 125,
+            "draw": 60
         },
         "venue": {
             "name": "Rajiv Gandhi International Stadium",
@@ -83,9 +83,9 @@
         "home_team": "65197d412fe4afe5b797692c",
         "away_team": "65197d412fe4afe5b797692d",
         "odds": {
-            "home_team": 2.1,
-            "away_team": 2.3,
-            "draw": 2.7
+            "home_team": 90.91,
+            "away_team": 130,
+            "draw": 70
         },
         "venue": {
             "name": "Punjab Cricket Association Stadium",
@@ -102,9 +102,9 @@
         "home_team": "65197d412fe4afe5b797692b",
         "away_team": "65197d412fe4afe5b7976930",
         "odds": {
-            "home_team": 2.0,
-            "away_team": 2.2,
-            "draw": 2.8
+            "home_team": 100,
+            "away_team": 120,
+            "draw": 180
         },
         "venue": {
             "name": "Eden Gardens",
@@ -121,9 +121,9 @@
         "home_team": "65197d412fe4afe5b7976931",
         "away_team": "65197d412fe4afe5b7976932",
         "odds": {
-            "home_team": 1.9,
-            "away_team": 2.1,
-            "draw": 2.5
+            "home_team": 111.11,
+            "away_team": 90.91,
+            "draw": 150
         },
         "venue": {
             "name": "Sahara Pune Warriors Stadium",
@@ -140,9 +140,9 @@
         "home_team": "65197d412fe4afe5b797692d",
         "away_team": "65197d412fe4afe5b797692c",
         "odds": {
-            "home_team": 2.1,
-            "away_team": 2.3,
-            "draw": 2.6
+            "home_team": 130,
+            "away_team": 90.91,
+            "draw": 60
         },
         "venue": {
             "name": "Sawai Mansingh Stadium",
