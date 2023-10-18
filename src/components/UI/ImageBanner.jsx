@@ -55,7 +55,7 @@ const ImageBanner = ({ data }) => {
 						{data.odds?.home_team}
 					</span>
 					<span className="before:content-['+']">
-						{data.odds?.home_team}
+						{data.odds?.draw}
 					</span>
 					<span
 						className={`${
