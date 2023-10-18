@@ -34,17 +34,17 @@ const ImageBanner = ({ data }) => {
 				<p className="text-center text-7xl uppercase text-red-500 font-bold">
 					{data.description}
 				</p>
-				<div className="flex-center gap-5">
-					<p className="flex-center gap-2 text-lg text-white uppercase font-bold">
+				<div className="flex-center gap-5 text-base text-white uppercase font-bold">
+					<p className="flex-center gap-2">
 						<HiMapPin />
 						{data.venue?.name}
 					</p>
-					<p className="flex-center gap-2 text-lg text-white uppercase font-bold">
+					<p className="flex-center gap-2">
 						<HiMiniUserGroup />
 						{data.bets_placed}
 					</p>
 				</div>
-				<p className="flex-center gap-2 text-lg text-white uppercase font-bold">
+				<p className="flex-center gap-2 text-base text-white uppercase font-bold">
 					<span
 						className={`${
 							data.odds?.home_team > data.odds?.away_team
@@ -75,14 +75,14 @@ const ImageBanner = ({ data }) => {
 			>
 				<Link
 					href="/sportsbook"
-					className="relative pb-2 underline_animation after:bg-white after:h-1
+					className="relative pb-2 underline_animation after:bg-red-500 after:h-1
 				"
 					onMouseEnter={() => setIsHovered(true)}
 					onMouseLeave={() => setIsHovered(false)}
 				>
 					Wager Now
 				</Link>{" "}
-				<HiChevronRight />
+				<HiChevronRight className="text-red-500" />
 			</div>
 		</section>
 	);
