@@ -15,7 +15,7 @@
             "location": "Chennai"
         },
         "status": "Completed",
-        "number_of bets_placed": 500,
+        "bets_placed": 500,
         "winner": "65197d412fe4afe5b7976928",
         "image": "https://assets.bcci.tv/bcci/photos/1164/7908a06c-0596-47c8-b263-8183f9461734.jpg"
     },
@@ -35,7 +35,7 @@
             "location": "Bangalore"
         },
         "status": "Live",
-        "number_of bets_placed": 700,
+        "bets_placed": 700,
         "winner": null
     },
     {
@@ -54,7 +54,7 @@
             "location": "Bangalore"
         },
         "status": "Scheduled",
-        "number_of bets_placed": 300,
+        "bets_placed": 300,
         "winner": null
     },
     {
@@ -73,7 +73,7 @@
             "location": "Hyderabad"
         },
         "status": "Postponed",
-        "number_of bets_placed": 450,
+        "bets_placed": 450,
         "winner": null
     },
     {
@@ -92,7 +92,7 @@
             "location": "Punjab"
         },
         "status": "Canceled",
-        "number_of bets_placed": 550,
+        "bets_placed": 550,
         "winner": null
     },
     {
@@ -111,7 +111,7 @@
             "location": "Kolkata"
         },
         "status": "Live",
-        "number_of bets_placed": 400,
+        "bets_placed": 400,
         "winner": null
     },
     {
@@ -130,7 +130,7 @@
             "location": "Pune"
         },
         "status": "Canceled",
-        "number_of bets_placed": 620,
+        "bets_placed": 620,
         "winner": null
     },
     {
@@ -149,7 +149,7 @@
             "location": "Rajasthan"
         },
         "status": "Scheduled",
-        "number_of bets_placed": 420,
+        "bets_placed": 420,
         "winner": null
     }
 ]
