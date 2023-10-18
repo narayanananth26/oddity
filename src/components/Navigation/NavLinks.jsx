@@ -18,8 +18,8 @@ const NavLinks = ({ links, pathname, positioning }) => {
 						<span
 							className={`${
 								isActive &&
-								"text-red-50 hover:text-red-50 hover:after:bg-red-50 active:text-red-800"
-							} flex-center relative text-2xl uppercase tracking-wider text-black pb-1 underline_animation after:bg-red-500 after:h-[3px] active:text-red-500`}
+								"text-red-50 hover:text-white hover:after:bg-red-50 active:text-black"
+							} flex-center relative text-2xl uppercase tracking-wider text-black hover:text-red-500 active:text-black pb-1 underline_animation after:bg-red-500 after:h-[3px] `}
 						>
 							{link.label}
 						</span>
