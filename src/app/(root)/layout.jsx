@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import AuthProvider from "@context/AuthContext";
 import RootNav from "@components/Navigation/RootNav";
+import NextTopLoader from "nextjs-toploader";
 ("@components/AuthProvider/AuthProvider");
 
 export const metadata = {
@@ -12,6 +13,7 @@ const RootLayout = ({ children }) => {
 	return (
 		<html lang="en">
 			<body>
+				<NextTopLoader color={"#ef4444"} showSpinner={false} />
 				<AuthProvider>
 					<div className="max-w-screen-xl min-h-screen flex flex-col h-screen font-oswald">
 						<RootNav />
