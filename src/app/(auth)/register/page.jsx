@@ -11,11 +11,13 @@ import RedirectTo from "@components/UI/RedirectTo";
 import { registerLink, signInLink } from "@utils/constants/links";
 
 const Register = () => {
+	const [isLoading, setIsLoading] = useState(false);
 	const [, setError] = useState(false);
 	const router = useRouter();
 
 	const handleSubmit = async ({ username, email, password }) => {
 		try {
+			setIsLoading(true);
 			const response = await fetch(`/api/auth/${registerLink.route}`, {
 				method: "POST",
 				headers: {
@@ -28,9 +30,10 @@ const Register = () => {
 				}),
 			});
 
-			if (response.status === 201)
+			if (response.status === 201) {
+				setIsLoading(false);
 				router.push(`${signInLink.route}?success=true`);
-			else {
+			} else {
 				const data = await response.json();
 				console.log(data);
 			}
@@ -67,8 +70,8 @@ const Register = () => {
 				name="password"
 				placeholder="Password"
 			/>
-			<Button type="submit" style="primary">
-				Register
+			<Button type="submit" style="primary" disabled={isLoading}>
+				{isLoading ? "Loading..." : "Register"}
 			</Button>
 			<RedirectTo
 				text="Already a member?"
