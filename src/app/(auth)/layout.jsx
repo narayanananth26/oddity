@@ -3,6 +3,7 @@ import AuthNav from "@components/Navigation/AuthNav";
 import AuthText from "@components/Auth/AuthText";
 import AuthTitle from "@components/Auth/AuthTitle";
 import AuthProvider from "@context/AuthContext";
+import NextTopLoader from "nextjs-toploader";
 
 export const metadata = {
 	title: "Oddity",
@@ -19,6 +20,10 @@ const RootLayout = ({ children }) => {
 							<AuthText />
 						</section>
 						<main className="overflow-hidden">
+							<NextTopLoader
+								color={"#ef4444"}
+								showSpinner={false}
+							/>
 							<AuthNav />
 							<AuthTitle />
 							{children}
