@@ -13,12 +13,6 @@ const AuthNav = () => {
 	return (
 		<NavLayout layout="flex-between mt-3">
 			<Logo width={200} height={200} />
-			<Link href="/">
-				<Button style="primary">
-					<HiArrowLeft size="1.5rem" />
-					<HiHome size="2rem" />
-				</Button>
-			</Link>
 		</NavLayout>
 	);
 };
