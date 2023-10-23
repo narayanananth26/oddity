@@ -1,13 +1,34 @@
+import { useSession } from "next-auth/react";
+import Image from "next/image";
 import Link from "next/link";
 
 const NavLinks = ({ links, pathname, positioning }) => {
+	const { data: session } = useSession();
+	console.log(session);
 	return (
 		<div className={positioning}>
 			{links.map((link, index) => {
 				const isActive =
 					(pathname.includes(link.route) && link.route.length > 1) ||
 					pathname === link.route;
-				return (
+				return link.route === "/sign-in" && session ? (
+					<Link
+						href="/profile"
+						className="flex-center gap-2"
+						key={index}
+					>
+						<Image
+							src={session?.user.image || "/assets/user.svg"}
+							width={37}
+							height={37}
+							className="rounded-full"
+							alt="Profile"
+						/>
+						<span className="w-fit hover:text-red-500">
+							{session?.user.username || "User"}
+						</span>
+					</Link>
+				) : (
 					<Link
 						key={index}
 						href={link.route}
