@@ -16,6 +16,7 @@ const userSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
+		image: { type: String, default: "/assets/user.svg", required: true },
 	},
 	{ timestamps: true }
 );
