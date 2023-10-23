@@ -1,4 +1,8 @@
 "use client";
+import React, { useState } from "react";
+import { useRouter } from "next/router";
+import { signIn } from "next-auth/react";
+import { HiUser, HiLockClosed, HiXMark, HiXCircle } from "react-icons/hi2";
 import FormField from "@components/Form/FormField";
 import FormLayout from "@components/Form/FormLayout";
 import Button from "@components/UI/Button";
@@ -10,88 +14,111 @@ import {
 	registerLink,
 } from "@utils/constants/links";
 import { signInValidation } from "@utils/validations/authValidation";
-import { signIn } from "next-auth/react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { HiUser, HiLockClosed } from "react-icons/hi2";
 
 const SignIn = () => {
-	const router = useRouter();
-	const handleSubmit = async ({ emailOrUsername, password }) => {
-		console.log(emailOrUsername, password);
+	const [isLoading, setIsLoading] = useState(false);
+	const [error, setError] = useState(null); // State to handle error;
+
+	const handleSubmit = async ({ emailOrUsername, password }, action) => {
 		try {
+			setIsLoading(true);
 			const isEmail = emailOrUsername.includes("@");
 			const credentials = isEmail
 				? { email: emailOrUsername }
 				: { username: emailOrUsername };
 
-			const signInResponse = await signIn("credentials", {
+			const response = await signIn("credentials", {
 				...credentials,
 				password,
+				redirect: false,
+				callbackUrl: "/",
 			});
 
-			if (signInResponse?.error) {
-				console.error("Authentication error:", signInResponse.error);
+			if (response.error) {
+				setError("Incorrect username or password.");
 			} else {
-				router.push("/");
+				setError(null);
 			}
 		} catch (error) {
 			console.log(error.message);
+		} finally {
+			setIsLoading(false);
+			action.resetForm();
 		}
 	};
 
 	return (
-		<FormLayout
-			initialValues={{
-				emailOrUsername: "",
-				password: "",
-			}}
-			validationSchema={signInValidation}
-			onSubmit={handleSubmit}
-		>
-			<FormField
-				label={<HiUser fill="gray" />}
-				type="text"
-				name="emailOrUsername"
-				placeholder="Email or Username"
-			/>
-			<FormField
-				label={<HiLockClosed fill="gray" />}
-				type="password"
-				name="password"
-				placeholder="Password"
-			/>
-			<RedirectTo
-				linkText="Forgot password?"
-				redirectTo={forgotPasswordLink.route}
-			/>
-			<Button type="submit" style="primary">
-				Sign In
-			</Button>
-			<Or />
-			<Button
-				type="button"
-				style="secondary"
-				onClick={(e) => {
-					e.preventDefault();
-					signIn("google", { callbackUrl: homeLink.route });
+		<>
+			<FormLayout
+				initialValues={{
+					emailOrUsername: "",
+					password: "",
 				}}
+				validationSchema={signInValidation}
+				onSubmit={handleSubmit}
 			>
-				<Image
-					src="/assets/google-logo.svg"
-					alt="Google logo"
-					width={18}
-					height={18}
-					className="my-auto"
+				{error && (
+					<div className="flex-between text-red-500 text-md bg-red-100 p-2 rounded-lg">
+						{error}
+						<button
+							onClick={(e) => {
+								e.preventDefault();
+								setError(false);
+							}}
+							className="hover:text-red-800 active:text-red-500"
+						>
+							<HiXMark />
+						</button>
+					</div>
+				)}
+				<FormField
+					label={<HiUser fill="gray" />}
+					type="text"
+					name="emailOrUsername"
+					placeholder="Email or Username"
 				/>
-				<span className="py-1">Continue with Google</span>
-			</Button>
-			<RedirectTo
-				text="Not yet a member?"
-				linkText="Register here"
-				redirectTo={registerLink.route}
-			/>
-		</FormLayout>
+				<FormField
+					label={<HiLockClosed fill="gray" />}
+					type="password"
+					name="password"
+					placeholder="Password"
+				/>
+
+				<RedirectTo
+					linkText="Forgot password?"
+					redirectTo={forgotPasswordLink.route}
+				/>
+				<Button type="submit" style="primary" disabled={isLoading}>
+					{isLoading ? "Loading..." : "Sign In"}
+				</Button>
+				<Or />
+				<Button
+					type="button"
+					style="secondary"
+					onClick={(e) => {
+						e.preventDefault();
+						setIsLoading(true);
+						signIn("google", { callbackUrl: homeLink.route });
+					}}
+					disabled={isLoading}
+				>
+					<Image
+						src="/assets/google-logo.svg"
+						alt="Google logo"
+						width={18}
+						height={18}
+						className="my-auto"
+					/>
+					<span className="py-1">Continue with Google</span>
+				</Button>
+				<RedirectTo
+					text="Not yet a member?"
+					linkText="Register here"
+					redirectTo={registerLink.route}
+				/>
+			</FormLayout>
+		</>
 	);
 };
 
