@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { HiLockClosed, HiMiniEnvelope, HiUser } from "react-icons/hi2";
+import { HiLockClosed, HiMiniEnvelope, HiUser, HiXMark } from "react-icons/hi2";
 import { registerValidation } from "@utils/validations/authValidation";
 import FormLayout from "@components/Form/FormLayout";
 import FormField from "@components/Form/FormField";
@@ -12,7 +12,7 @@ import { registerLink, signInLink } from "@utils/constants/links";
 
 const Register = () => {
 	const [isLoading, setIsLoading] = useState(false);
-	const [, setError] = useState(false);
+	const [error, setError] = useState(null); // State to store error message
 	const router = useRouter();
 
 	const handleSubmit = async ({ username, email, password }) => {
@@ -30,15 +30,19 @@ const Register = () => {
 				}),
 			});
 
+			const responseMessage = await response.text();
+
 			if (response.status === 201) {
 				setIsLoading(false);
 				router.push(`${signInLink.route}?success=true`);
 			} else {
-				const data = await response.json();
-				console.log(data);
+				setError(responseMessage);
+				setIsLoading(false);
 			}
 		} catch (error) {
-			setError(false);
+			console.log(error);
+			setError("An error occurred while registering.");
+			setIsLoading(false);
 		}
 	};
 
@@ -52,6 +56,20 @@ const Register = () => {
 			validationSchema={registerValidation}
 			onSubmit={handleSubmit}
 		>
+			{error && (
+				<div className="flex-between text-red-500 text-md bg-red-100 p-2 rounded-lg">
+					{error}
+					<button
+						onClick={(e) => {
+							e.preventDefault();
+							setError(false);
+						}}
+						className="hover:text-red-800 active:text-red-500"
+					>
+						<HiXMark />
+					</button>
+				</div>
+			)}
 			<FormField
 				label={<HiUser fill="gray" />}
 				type="text"
