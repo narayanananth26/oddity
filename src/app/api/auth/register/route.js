@@ -8,12 +8,23 @@ export const POST = async (request) => {
 		const { username, email, password } = await request.json();
 		await connectToMongoDB();
 
+		const userExists = await User.findOne({
+			$or: [{ email }, { username }],
+		});
+
+		if (userExists) {
+			return new NextResponse("The username or email is already taken.", {
+				status: 422,
+			});
+		}
+
 		const hashedPassword = await bcrypt.hash(password, 5);
 
 		const newUser = {
 			username,
 			email,
 			password: hashedPassword,
+			image: "/assets/user.svg",
 		};
 		console.log(newUser);
 
