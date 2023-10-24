@@ -10,35 +10,6 @@ const handler = NextAuth({
 		GoogleProvider({
 			clientId: process.env.GOOGLE_CLIENT_ID,
 			clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-			callbacks: {
-				async signIn(user, account, metadata) {
-					const { email, name, image } = metadata;
-
-					// Connect to the database
-					await connectToMongoDB();
-					console.log(email, name, image);
-
-					// Check if the user already exists in your database
-					let existingUser = await User.findOne({ email });
-
-					if (!existingUser) {
-						// If the user doesn't exist, create a new user record
-						existingUser = await User.create({
-							email,
-							username: name.replace(" ", "").toLowerCase(),
-							image,
-							// Add other user fields as needed
-						});
-					} else {
-						// If the user exists, update their data
-						existingUser.image = image;
-						// Update other user fields as needed
-						await existingUser.save();
-					}
-
-					return true;
-				},
-			},
 		}),
 		CredentialsProvider({
 			id: "credentials",
@@ -48,8 +19,8 @@ const handler = NextAuth({
 				password: { label: "Password", type: "password" },
 			},
 			async authorize(credentials) {
-				await connectToMongoDB();
 				try {
+					await connectToMongoDB();
 					const { username, password } = credentials;
 					const user = await User.findOne({
 						$or: [{ email: username }, { username: username }],
@@ -77,29 +48,48 @@ const handler = NextAuth({
 		}),
 	],
 	callbacks: {
-		async session({ session, token }) {
+		async session({ session }) {
 			try {
-				// Ensure that `User.findOne` query succeeds
 				const sessionUser = await User.findOne({
 					email: session.user.email,
 				});
 
 				if (sessionUser) {
-					console.log(sessionUser);
-					// Access user data if it exists
 					session.user.username = sessionUser.username;
 					session.user.image = sessionUser.image;
 				}
 
 				return session;
 			} catch (error) {
-				// Handle any errors gracefully
 				console.error("Session callback error:", error);
 				return session;
 			}
 		},
+		async signIn({ profile, credentials }) {
+			try {
+				if (credentials) return true;
+				await connectToMongoDB();
+				const user = await User.findOne({ email: profile.email });
+				if (!user) {
+					await User.create({
+						email: profile.email,
+						username: profile.name.replace(" ", "").toLowerCase(),
+						image: profile.picture,
+					});
+					return true;
+				} else {
+					if (user.image === "/assets/user.svg") {
+						user.image = profile.picture;
+						await user.save();
+					}
+					return true;
+				}
+			} catch (error) {
+				console.log("Error checking if user exists: ", error.message);
+				return false;
+			}
+		},
 	},
-
 	pages: {
 		error: "/sign-in",
 	},
