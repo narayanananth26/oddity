@@ -35,7 +35,7 @@ Before you start using Oddity, make sure you have the following prerequisites:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/oddity-betting/oddity.git
+   git clone https://github.com/narayanananth26/oddity.git
    ```
    
 2. **Navigate to the project directory:**
