@@ -14,7 +14,6 @@ const userSchema = new mongoose.Schema(
 		},
 		password: {
 			type: String,
-			required: true,
 		},
 		image: { type: String, default: "/assets/user.svg", required: true },
 	},
