@@ -10,13 +10,13 @@ const RootNav = () => {
 	const pathname = usePathname();
 
 	return (
-		<NavLayout layout="grid grid-cols-3 absolute top-3 left-3 w-[98%]">
+		<NavLayout layout="grid grid-cols-3">
 			<NavLinks
 				pathname={pathname}
 				links={leftNavLinks}
 				positioning="flex-start gap-10"
 			/>
-			<Logo width={200} height={200} />
+			<Logo width={100} height={100} />
 			<NavLinks
 				pathname={pathname}
 				links={rightNavLinks}
