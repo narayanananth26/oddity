@@ -14,7 +14,7 @@ const AuthTitle = () => {
 			title = link.label;
 	});
 	return (
-		<p className="flex-center tracking-wider uppercase text-4xl font-semibold text-red-500 mt-10">
+		<p className="flex-center tracking-wider uppercase text-4xl font-semibold text-red-500 mt-36">
 			{title}
 		</p>
 	);
