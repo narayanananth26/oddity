@@ -11,7 +11,7 @@ import Link from "next/link";
 
 const AuthNav = () => {
 	return (
-		<NavLayout layout="flex-between mt-3">
+		<NavLayout layout="flex-start">
 			<Logo width={200} height={200} />
 		</NavLayout>
 	);
