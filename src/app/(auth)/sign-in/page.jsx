@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import { useRouter } from "next/router";
 import { signIn } from "next-auth/react";
 import { HiUser, HiLockClosed, HiXMark, HiXCircle } from "react-icons/hi2";
 import FormField from "@components/Form/FormField";
@@ -12,11 +11,14 @@ import {
 	forgotPasswordLink,
 	homeLink,
 	registerLink,
+	signInLink,
 } from "@utils/constants/links";
 import { signInValidation } from "@utils/validations/authValidation";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const SignIn = () => {
+	const router = useRouter();
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState(null); // State to handle error;
 
@@ -36,8 +38,10 @@ const SignIn = () => {
 			});
 
 			if (response.error) {
+				router.push(`${signInLink.route}?success=false`);
 				setError("Incorrect username or password.");
 			} else {
+				router.push("/");
 				setError(null);
 			}
 		} catch (error) {
