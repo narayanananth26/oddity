@@ -19,7 +19,7 @@ const RootLayout = ({ children }) => {
 						<section className="bg-red-500 flex-center p-20">
 							<AuthText />
 						</section>
-						<main className="overflow-hidden">
+						<main className="overflow-hidden relative">
 							<NextTopLoader
 								color={"#ef4444"}
 								showSpinner={false}
