@@ -16,6 +16,7 @@ import {
 import { signInValidation } from "@utils/validations/authValidation";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { CircularProgress } from "@mui/material";
 
 const SignIn = () => {
 	const router = useRouter();
@@ -94,7 +95,16 @@ const SignIn = () => {
 					redirectTo={forgotPasswordLink.route}
 				/>
 				<Button type="submit" style="primary" disabled={isLoading}>
-					{isLoading ? "Loading..." : "Sign In"}
+					{isLoading ? (
+						<CircularProgress
+							sx={{
+								color: "#ffffff",
+							}}
+							size={25}
+						/>
+					) : (
+						"Sign In"
+					)}
 				</Button>
 				<Or />
 				<Button
@@ -107,14 +117,25 @@ const SignIn = () => {
 					}}
 					disabled={isLoading}
 				>
-					<Image
-						src="/assets/google-logo.svg"
-						alt="Google logo"
-						width={18}
-						height={18}
-						className="my-auto"
-					/>
-					<span className="py-1">Continue with Google</span>
+					{isLoading ? (
+						<CircularProgress
+							sx={{
+								color: "#ef4444",
+							}}
+							size={25}
+						/>
+					) : (
+						<>
+							<Image
+								src="/assets/google-logo.svg"
+								alt="Google logo"
+								width={18}
+								height={18}
+								className="my-auto"
+							/>
+							<span className="py-1">Continue with Google</span>
+						</>
+					)}
 				</Button>
 				<RedirectTo
 					text="Not yet a member?"
