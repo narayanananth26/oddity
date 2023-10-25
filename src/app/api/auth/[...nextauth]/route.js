@@ -78,7 +78,7 @@ const handler = NextAuth({
 					});
 					return true;
 				} else {
-					if (user.image === "/assets/user.svg") {
+					if (user.image === "/assets/user-icon.svg") {
 						user.image = profile.picture;
 						await user.save();
 					}
