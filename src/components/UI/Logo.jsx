@@ -6,7 +6,7 @@ const Logo = ({ width, height }) => {
 		<div className="flex-center w-full">
 			<Link href="/" className="relative flex-center h-full w-full">
 				<Image
-					src="/assets/logo.png"
+					src="/assets/oddity-logo.png"
 					alt="Oddity logo"
 					priority
 					width={width}
