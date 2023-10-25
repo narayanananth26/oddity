@@ -15,7 +15,11 @@ const userSchema = new mongoose.Schema(
 		password: {
 			type: String,
 		},
-		image: { type: String, default: "/assets/user.svg", required: true },
+		image: {
+			type: String,
+			default: "/assets/user-icon.svg",
+			required: true,
+		},
 	},
 	{ timestamps: true }
 );
