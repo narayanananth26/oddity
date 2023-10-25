@@ -1,19 +1,22 @@
-import { useState } from "react";
-import Button from "@components/UI/Button";
+import { useEffect, useState } from "react";
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
-import { signInLink } from "@utils/constants/links";
-import { useRouter } from "next/navigation";
-
+import { CircularProgress } from "@mui/material";
 const NavLinks = ({ links, pathname, positioning }) => {
-	const { data: session } = useSession();
-	const router = useRouter();
+	const { data: session, status: sessionStatus } = useSession();
 	const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+	const [isSessionStatusLoading, setIsSessionStatusLoading] = useState(
+		sessionStatus === "loading"
+	);
 
 	const toggleDropdown = () => {
 		setIsDropdownVisible(!isDropdownVisible);
 	};
+
+	useEffect(() => {
+		setIsSessionStatusLoading(false);
+	}, [sessionStatus]);
 
 	return (
 		<div className={positioning}>
@@ -21,6 +24,17 @@ const NavLinks = ({ links, pathname, positioning }) => {
 				const isActive =
 					(pathname.includes(link.route) && link.route.length > 1) ||
 					pathname === link.route;
+
+				if (link.route === "/sign-in" && isSessionStatusLoading)
+					return (
+						<CircularProgress
+							sx={{
+								color: "#ef4444",
+							}}
+							size={40}
+							key={index}
+						/>
+					);
 				return link.route === "/sign-in" && session ? (
 					<div key={index} className="relative">
 						<div
@@ -39,11 +53,8 @@ const NavLinks = ({ links, pathname, positioning }) => {
 						</div>
 
 						{isDropdownVisible && (
-							<div
-								className="absolute right-0 mt-2"
-								style={{ width: "100%" }} // Set the width to 100%
-							>
-								<div className="w-40 bg-white border rounded shadow">
+							<div className="absolute left-0 mt-2 w-36">
+								<div className="bg-white border rounded shadow">
 									<Link href="/profile">
 										<span className="block px-4 py-2 text-gray-800 hover:bg-gray-100">
 											Profile
