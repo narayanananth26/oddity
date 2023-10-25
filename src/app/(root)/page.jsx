@@ -1,34 +1,25 @@
-"use client";
 import ImageBanner from "@components/UI/ImageBanner";
 import UnderConstruction from "@components/UI/UnderConstruction";
 import { apiUrl } from "@utils/constants/links";
-import { useEffect, useState } from "react";
 
-const Home = () => {
-	const [events, setEvents] = useState([]);
+const getLiveEvent = async () => {
+	const res = await fetch(`${apiUrl}/events?filterBy=status&status=Live`, {
+		next: { revalidate: 3600 },
+	});
+	if (!res) throw new Error("Failed to fetch events");
 
-	useEffect(() => {
-		fetch(`${apiUrl}/events?filterBy=status&status=Live`)
-			.then((response) => response.json())
-			.then((data) => setEvents(data))
-			.catch((error) => console.error("Error fetching events.", error));
-	}, []);
+	const events = await res.json();
 
-	let event;
+	const event = events.reduce((maxEvent, event) => {
+		if (event.bets_placed > maxEvent.bets_placed) return event;
+		return maxEvent;
+	});
 
-	if (events) {
-		event = events.reduce(
-			(maxEvent, event) => {
-				if (
-					event.number_of_bets_placed > maxEvent.number_of_bets_placed
-				) {
-					return event;
-				}
-				return maxEvent;
-			},
-			{ number_of_bets_placed: -1 }
-		);
-	}
+	return event;
+};
+
+const Home = async () => {
+	const event = await getLiveEvent();
 	return (
 		<>
 			<ImageBanner data={event} />
