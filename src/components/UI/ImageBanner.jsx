@@ -11,8 +11,8 @@ const ImageBanner = ({ data }) => {
 		<section className="w-screen h-screen relative overflow-hidden">
 			<div className="absolute inset-0">
 				<Image
-					src={data.image || "/img.webp"}
-					alt={data.name || "banner"}
+					src={data.image}
+					alt={data.name}
 					fill
 					className={`transition-transform transform-gpu ease-in-out duration-700 object-cover object-center ${
 						isHovered && "scale-125 blur-sm"
