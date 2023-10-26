@@ -24,7 +24,11 @@ export const POST = async (request) => {
 
 		// Send the password reset email
 		const resetLink = `${process.env.NEXTAUTH_URL}/reset-password?token=${resetToken}`;
-		console.log(resetLink);
+		console.log(
+			"forgot-password/route.js - POST\n",
+			"Password reset link- ",
+			resetLink
+		);
 
 		await transporter.sendMail({
 			...mailOptions,
@@ -36,7 +40,7 @@ export const POST = async (request) => {
 			status: 200,
 		});
 	} catch (error) {
-		console.log(error);
+		console.log("forgot-password/route.js\n", error);
 		return new NextResponse(error.message, {
 			status: 500,
 		});
