@@ -41,7 +41,10 @@ const handler = NextAuth({
 						throw new Error("User not found!");
 					}
 				} catch (error) {
-					console.log(error);
+					console.log(
+						"[next-auth]/route.js - handler/providers/CredentialsProvider\n",
+						error
+					);
 					return null;
 				}
 			},
@@ -61,7 +64,11 @@ const handler = NextAuth({
 
 				return session;
 			} catch (error) {
-				console.error("Session callback error:", error);
+				console.error(
+					"[next-auth]/route.js - handler/callbacks/session\n",
+					"Session callback error:",
+					error
+				);
 				return session;
 			}
 		},
@@ -85,7 +92,7 @@ const handler = NextAuth({
 					return true;
 				}
 			} catch (error) {
-				console.log("Error checking if user exists: ", error.message);
+				console.log("[next-auth]/route.js - handler/callbacks/signIn\n","Error checking if user exists: ", error.message);
 				return false;
 			}
 		},
