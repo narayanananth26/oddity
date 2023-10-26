@@ -1,0 +1,155 @@
+[
+	{
+		"name": "IPL Final - Chennai Super Kings vs. Mumbai Indians",
+		"description": "Grand Championship Decider",
+		"date": "2023-11-15",
+		"home_team": "65197d412fe4afe5b7976928",
+		"away_team": "65197d412fe4afe5b7976929",
+		"odds": {
+			"home_team": 125,
+			"away_team": 100,
+			"draw": 150
+		},
+		"venue": {
+			"name": "M. A. Chidambaram Stadium",
+			"location": "Chennai"
+		},
+		"status": "Completed",
+		"bets_placed": 500,
+		"winner": "65197d412fe4afe5b7976928",
+		"image": "https://assets.bcci.tv/bcci/photos/1164/7908a06c-0596-47c8-b263-8183f9461734.jpg"
+	},
+	{
+		"name": "IPL - Royal Challengers Bangalore vs. Sunrisers Hyderabad",
+		"description": "Electrifying Clash of Titans",
+		"date": "2023-10-20",
+		"home_team": "65197d412fe4afe5b797692a",
+		"away_team": "65197d412fe4afe5b797692e",
+		"odds": {
+			"home_team": 111.11,
+			"away_team": 90.91,
+			"draw": 60
+		},
+		"venue": {
+			"name": "M. Chinnaswamy Stadium",
+			"location": "Bangalore"
+		},
+		"status": "Live",
+		"bets_placed": 700,
+		"winner": null
+	},
+	{
+		"name": "IPL - Royal Challengers Bangalore vs. Chennai Super Kings",
+		"description": "Classic Sporting Rivalry",
+		"date": "2023-12-05",
+		"home_team": "65197d412fe4afe5b797692a",
+		"away_team": "65197d412fe4afe5b7976928",
+		"odds": {
+			"home_team": 120,
+			"away_team": 130,
+			"draw": 180
+		},
+		"venue": {
+			"name": "M. Chinnaswamy Stadium",
+			"location": "Bangalore"
+		},
+		"status": "Scheduled",
+		"bets_placed": 300,
+		"winner": null
+	},
+	{
+		"name": "IPL - Sunrisers Hyderabad vs. Mumbai Indians",
+		"description": "High-Stakes Thriller",
+		"date": "2023-11-08",
+		"home_team": "65197d412fe4afe5b797692e",
+		"away_team": "65197d412fe4afe5b7976929",
+		"odds": {
+			"home_team": 100,
+			"away_team": 125,
+			"draw": 60
+		},
+		"venue": {
+			"name": "Rajiv Gandhi International Stadium",
+			"location": "Hyderabad"
+		},
+		"status": "Postponed",
+		"bets_placed": 450,
+		"winner": null
+	},
+	{
+		"name": "IPL - Kings XI Punjab vs. Rajasthan Royals",
+		"description": "Intense Battle Royale",
+		"date": "2023-11-10",
+		"home_team": "65197d412fe4afe5b797692c",
+		"away_team": "65197d412fe4afe5b797692d",
+		"odds": {
+			"home_team": 90.91,
+			"away_team": 130,
+			"draw": 70
+		},
+		"venue": {
+			"name": "Punjab Cricket Association Stadium",
+			"location": "Punjab"
+		},
+		"status": "Completed",
+		"bets_placed": 550,
+		"winner": "65197d412fe4afe5b797692d"
+	},
+	{
+		"name": "IPL - Kolkata Knight Riders vs. Delhi Capitals",
+		"description": "Exciting Showdown in Kolkata",
+		"date": "2023-10-25",
+		"home_team": "65197d412fe4afe5b797692b",
+		"away_team": "65197d412fe4afe5b7976930",
+		"odds": {
+			"home_team": 100,
+			"away_team": 120,
+			"draw": 180
+		},
+		"venue": {
+			"name": "Eden Gardens",
+			"location": "Kolkata"
+		},
+		"status": "Live",
+		"bets_placed": 400,
+		"winner": null
+	},
+	{
+		"name": "IPL - Pune Warriors India vs. Deccan Chargers",
+		"description": "Exciting Clash in Pune",
+		"date": "2023-11-18",
+		"home_team": "65197d412fe4afe5b7976931",
+		"away_team": "65197d412fe4afe5b7976932",
+		"odds": {
+			"home_team": 111.11,
+			"away_team": 90.91,
+			"draw": 150
+		},
+		"venue": {
+			"name": "Sahara Pune Warriors Stadium",
+			"location": "Pune"
+		},
+		"status": "Canceled",
+		"bets_placed": 620,
+		"winner": null
+	},
+	{
+		"name": "IPL - Rajasthan Royals vs. Kings XI Punjab",
+		"description": "Rajasthan's Ultimate Showdown",
+		"date": "2023-10-30",
+		"home_team": "65197d412fe4afe5b797692d",
+		"away_team": "65197d412fe4afe5b797692c",
+		"odds": {
+			"home_team": 130,
+			"away_team": 90.91,
+			"draw": 60
+		},
+		"venue": {
+			"name": "Sawai Mansingh Stadium",
+			"location": "Rajasthan"
+		},
+		"status": "Scheduled",
+		"bets_placed": 420,
+		"winner": null
+	}
+]
