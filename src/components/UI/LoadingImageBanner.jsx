@@ -8,8 +8,8 @@ const LoadingImageBanner = () => {
 					variant="rectangular"
 					width={6000}
 					height={4000}
-					sx={{ bgcolor: "#fef2f2" }}
-					animation="wave"
+					sx={{ bgcolor: "#424242" }}
+					animation={false}
 				/>
 			</div>
 
@@ -17,33 +17,33 @@ const LoadingImageBanner = () => {
 				<Skeleton
 					width={400}
 					height={40}
-					sx={{ bgcolor: "#fecaca" }}
+					sx={{ bgcolor: "#616161" }}
 					animation="wave"
 				/>
 				<Skeleton
 					width={600}
 					height={100}
-					sx={{ bgcolor: "#fecaca" }}
+					sx={{ bgcolor: "#616161" }}
 					animation="wave"
 				/>
 				<div className="flex-center gap-5">
 					<Skeleton
 						width={100}
 						height={20}
-						sx={{ bgcolor: "#fecaca" }}
+						sx={{ bgcolor: "#616161" }}
 						animation="wave"
 					/>
 					<Skeleton
 						width={100}
 						height={20}
-						sx={{ bgcolor: "#fecaca" }}
+						sx={{ bgcolor: "#616161" }}
 						animation="wave"
 					/>
 				</div>
 				<Skeleton
 					width={200}
 					height={20}
-					sx={{ bgcolor: "#fecaca" }}
+					sx={{ bgcolor: "#616161" }}
 					animation="wave"
 				/>
 			</div>
@@ -53,7 +53,7 @@ const LoadingImageBanner = () => {
 				<Skeleton
 					width={400}
 					height={100}
-					sx={{ bgcolor: "#fecaca" }}
+					sx={{ bgcolor: "#616161" }}
 					animation="wave"
 				/>
 			</div>
