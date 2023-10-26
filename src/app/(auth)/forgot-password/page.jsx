@@ -30,7 +30,7 @@ const ForgotPassword = () => {
 				setError(data.message);
 			}
 		} catch (error) {
-			console.error(error);
+			console.error("forgot-password/page.jsx\n",error);
 			setError("An error occurred");
 		}
 	};
