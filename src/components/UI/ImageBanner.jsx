@@ -4,9 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { HiChevronRight, HiMapPin, HiMiniUserGroup } from "react-icons/hi2";
+import LoadingImageBanner from "./LoadingImageBanner";
 
 const ImageBanner = ({ data }) => {
 	const [isHovered, setIsHovered] = useState(false);
+	if (!data) return <LoadingImageBanner />;
 	return (
 		<section className="w-screen h-screen relative overflow-hidden">
 			<div className="absolute inset-0">
@@ -14,6 +16,7 @@ const ImageBanner = ({ data }) => {
 					src={data.image}
 					alt={data.name}
 					fill
+					priority
 					className={`transition-transform transform-gpu ease-in-out duration-700 object-cover object-center ${
 						isHovered && "scale-125 blur-sm"
 					}`}
