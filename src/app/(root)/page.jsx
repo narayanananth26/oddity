@@ -6,29 +6,17 @@ import BannerContent from "@components/UI/BannerContent";
 import UnderConstruction from "@components/UI/UnderConstruction";
 import { apiUrl } from "@utils/constants/links";
 import { HiMapPin, HiMiniUserGroup } from "react-icons/hi2";
+import { getAllEvents } from "@utils/fetch-functions/getAllEvents";
 
 const Home = () => {
-	const [liveEvent, setLiveEvent] = useState(null);
+	const [events, setEvents] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
 		const fetchEvents = async () => {
 			try {
-				const res = await fetch(`${apiUrl}/events/live`, {
-					next: { revalidate: 60 },
-				});
-				if (!res) throw new Error("Failed to fetch events");
-				const events = await res.json();
-
-				if (events.length) {
-					const maxEvent = events.reduce((maxEvent, event) => {
-						if (event.bets_placed > maxEvent.bets_placed)
-							return event;
-						return maxEvent;
-					});
-					setLiveEvent(maxEvent);
-				}
-
+				const events = await getAllEvents();
+				setEvents(events);
 				setIsLoading(false);
 			} catch (error) {
 				console.error(error);
@@ -38,6 +26,18 @@ const Home = () => {
 
 		fetchEvents();
 	}, []);
+
+	let bannerEvent;
+
+	if (events.length) {
+		bannerEvent = events
+			.filter((event) => event.status === "live")
+			.reduce(
+				(maxEvent, event) =>
+					event.bets_placed > maxEvent.bets_placed ? event : maxEvent,
+				{ bets_placed: -Infinity }
+			);
+	}
 
 	return (
 		<>
@@ -49,19 +49,19 @@ const Home = () => {
 						isLoading ? "opacity-0" : "opacity-100"
 					}`}
 				>
-					<ImageBanner src={liveEvent.image} alt={liveEvent.name}>
+					<ImageBanner src={bannerEvent.image} alt={bannerEvent.name}>
 						<BannerContent
-							h1={liveEvent.description}
-							h2={liveEvent.name}
+							h1={bannerEvent.description}
+							h2={bannerEvent.name}
 							h3={
 								<>
 									<span className="flex-center gap-2">
 										<HiMapPin />
-										{liveEvent.venue?.name}
+										{bannerEvent.venue?.name}
 									</span>
 									<span className="flex-center gap-2">
 										<HiMiniUserGroup />
-										{liveEvent.bets_placed}
+										{bannerEvent.bets_placed}
 									</span>
 								</>
 							}
@@ -69,26 +69,26 @@ const Home = () => {
 								<>
 									<span
 										className={`${
-											liveEvent.odds?.home_team >
-											liveEvent.odds?.away_team
+											bannerEvent.odds?.home_team >
+											bannerEvent.odds?.away_team
 												? "before:content-['-'] text-red-500"
 												: "before:content-['+'] text-green-500"
 										}`}
 									>
-										{liveEvent.odds?.home_team}
+										{bannerEvent.odds?.home_team}
 									</span>
 									<span className="before:content-['+']">
-										{liveEvent.odds?.draw}
+										{bannerEvent.odds?.draw}
 									</span>
 									<span
 										className={`${
-											liveEvent.odds?.away_team >
-											liveEvent.odds?.home_team
+											bannerEvent.odds?.away_team >
+											bannerEvent.odds?.home_team
 												? "before:content-['-'] text-red-500"
 												: "before:content-['+'] text-green-500"
 										}`}
 									>
-										{liveEvent.odds?.away_team}
+										{bannerEvent.odds?.away_team}
 									</span>
 								</>
 							}
