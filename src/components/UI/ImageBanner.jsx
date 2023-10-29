@@ -5,16 +5,17 @@ import Link from "next/link";
 import { useState } from "react";
 import { HiChevronRight, HiMapPin, HiMiniUserGroup } from "react-icons/hi2";
 import LoadingImageBanner from "./LoadingImageBanner";
+import ZoomOnHoverButton from "@components/Buttons/ZoomOnHoverButton";
+import Overlay from "./Overlay";
 
-const ImageBanner = ({ data }) => {
+const ImageBanner = ({ src, alt, children }) => {
 	const [isHovered, setIsHovered] = useState(false);
-	if (!data) return <LoadingImageBanner />;
 	return (
 		<section className="w-screen h-screen relative overflow-hidden">
 			<div className="absolute inset-0">
 				<Image
-					src={data.image}
-					alt={data.name}
+					src={src}
+					alt={alt}
 					fill
 					priority
 					className={`transition-transform transform-gpu ease-in-out duration-700 object-cover object-center ${
@@ -23,70 +24,17 @@ const ImageBanner = ({ data }) => {
 				/>
 			</div>
 
-			{/* Overlay */}
-			<div
-				className={`absolute inset-0 bg-black transition-opacity ease-in-out duration-500 opacity-70 ${
-					isHovered && ""
-				}`}
-			/>
+			<Overlay />
 
-			<div className="flex flex-col flex-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 gap-2 w-full">
-				<h1 className="text-xl text-white uppercase font-bold">
-					{data.name}
-				</h1>
-				<p className="text-center text-7xl uppercase text-red-500 font-bold">
-					{data.description}
-				</p>
-				<div className="flex-center gap-5 text-base text-white uppercase font-bold">
-					<p className="flex-center gap-2">
-						<HiMapPin />
-						{data.venue?.name}
-					</p>
-					<p className="flex-center gap-2">
-						<HiMiniUserGroup />
-						{data.bets_placed}
-					</p>
-				</div>
-				<p className="flex-center gap-2 text-base text-white uppercase font-bold">
-					<span
-						className={`${
-							data.odds?.home_team > data.odds?.away_team
-								? 'before:content-["-"] text-red-500'
-								: 'before:content-["+"] text-green-500'
-						}`}
-					>
-						{data.odds?.home_team}
-					</span>
-					<span className="before:content-['+']">
-						{data.odds?.draw}
-					</span>
-					<span
-						className={`${
-							data.odds?.away_team > data.odds?.home_team
-								? 'before:content-["-"] text-red-500'
-								: 'before:content-["+"] text-green-500'
-						}`}
-					>
-						{data.odds?.away_team}
-					</span>
-				</p>
-			</div>
+			{children}
 
-			{/* Button */}
-			<div
-				className={`flex-center text-white text-7xl font-bold uppercase absolute bottom-0 left-0 transform translate-x-1/4 -translate-y-1/2 px-6 py-3`}
+			<ZoomOnHoverButton
+				linkTo="/sportsbook"
+				onMouseEnter={() => setIsHovered(true)}
+				onMouseLeave={() => setIsHovered(false)}
 			>
-				<Link
-					href="/sportsbook"
-					className="relative pb-2 underline_animation after:bg-red-500 after:h-1
-				"
-					onMouseEnter={() => setIsHovered(true)}
-					onMouseLeave={() => setIsHovered(false)}
-				>
-					Wager Now
-				</Link>{" "}
-				<HiChevronRight className="text-red-500" />
-			</div>
+				Wager Now
+			</ZoomOnHoverButton>
 		</section>
 	);
 };
