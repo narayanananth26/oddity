@@ -1,7 +1,7 @@
 "use client";
 import FormField from "@components/Form/FormField";
 import FormLayout from "@components/Form/FormLayout";
-import Button from "@components/UI/Button";
+import Button from "@components/Buttons/Button";
 import { forgotPasswordValidation } from "@utils/validations/authValidation";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
