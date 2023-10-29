@@ -4,7 +4,7 @@ import { signIn } from "next-auth/react";
 import { HiUser, HiLockClosed, HiXMark, HiXCircle } from "react-icons/hi2";
 import FormField from "@components/Form/FormField";
 import FormLayout from "@components/Form/FormLayout";
-import Button from "@components/UI/Button";
+import Button from "@components/Buttons/Button";
 import Or from "@components/UI/Or";
 import RedirectTo from "@components/UI/RedirectTo";
 import {
@@ -46,7 +46,7 @@ const SignIn = () => {
 				setError(null);
 			}
 		} catch (error) {
-			console.log("sign-in/page.jsx\n",error.message);
+			console.log("sign-in/page.jsx\n", error.message);
 		} finally {
 			setIsLoading(false);
 			action.resetForm();
