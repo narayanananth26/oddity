@@ -66,7 +66,7 @@ const eventSchema = new mongoose.Schema({
 	status: {
 		type: String,
 		enum: {
-			values: ["Scheduled", "Live", "Completed", "Postponed", "Canceled"],
+			values: ["scheduled", "live", "completed", "postponed", "canceled"],
 			message: "Invalid event status.",
 		},
 		default: "Scheduled",
