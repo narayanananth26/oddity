@@ -6,7 +6,7 @@ import { HiLockClosed, HiMiniEnvelope, HiUser, HiXMark } from "react-icons/hi2";
 import { registerValidation } from "@utils/validations/authValidation";
 import FormLayout from "@components/Form/FormLayout";
 import FormField from "@components/Form/FormField";
-import Button from "@components/UI/Button";
+import Button from "@components/Buttons/Button";
 import RedirectTo from "@components/UI/RedirectTo";
 import { registerLink, signInLink } from "@utils/constants/links";
 
@@ -40,7 +40,7 @@ const Register = () => {
 				setIsLoading(false);
 			}
 		} catch (error) {
-			console.log("register/page.jsx\n",error);
+			console.log("register/page.jsx\n", error);
 			setError("An error occurred while registering.");
 			setIsLoading(false);
 		}
