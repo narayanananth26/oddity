@@ -18,6 +18,10 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { CircularProgress } from "@mui/material";
 
+export const metadata = {
+	title: "Sign In",
+};
+
 const SignIn = () => {
 	const router = useRouter();
 	const [isLoading, setIsLoading] = useState(false);
