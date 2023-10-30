@@ -6,11 +6,14 @@ import AuthProvider from "@context/AuthContext";
 import NextTopLoader from "nextjs-toploader";
 
 export const metadata = {
-	title: "Oddity",
+	title: {
+		default: "Oddity - India's Premier Sports Betting App",
+		template: "%s | Oddity",
+	},
 	description: "Place bets on your favorite sports events.",
 };
 
-const RootLayout = ({ children }) => {
+const AuthLayout = ({ children }) => {
 	return (
 		<html lang="en">
 			<body>
@@ -35,4 +38,4 @@ const RootLayout = ({ children }) => {
 	);
 };
 
-export default RootLayout;
+export default AuthLayout;
