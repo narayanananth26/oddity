@@ -25,7 +25,7 @@ export const rightNavLinks = [
 	},
 	{
 		route: "/sportsbook",
-		label: "Sportsbook",
+		label: "Sports Book",
 	},
 	{
 		route: "/sign-in",
