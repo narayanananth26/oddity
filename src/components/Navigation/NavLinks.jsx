@@ -39,7 +39,7 @@ const NavLinks = ({ links, pathname, positioning }) => {
 					<div key={index} className="relative">
 						<div
 							onClick={toggleDropdown}
-							className="flex-center gap-2 hover:text-red-500 cursor-pointer"
+							className="flex-center gap-2 cursor-pointer"
 							style={{ position: "relative" }} // Set relative positioning
 						>
 							<Image
@@ -49,15 +49,14 @@ const NavLinks = ({ links, pathname, positioning }) => {
 								className="rounded-full"
 								alt="Profile"
 							/>
-							<span>{session?.user.username}</span>
 						</div>
 
 						{isDropdownVisible && (
-							<div className="absolute left-0 mt-2 w-36">
+							<div className="absolute left-0 mt-2 -translate-x-1/2 w-fit">
 								<div className="bg-white border rounded shadow">
 									<Link href="/profile">
-										<span className="block px-4 py-2 text-gray-800 hover:bg-gray-100">
-											Profile
+										<span className="block px-4 py-2 text-black hover:bg-gray-100">
+											{session?.user.username}
 										</span>
 									</Link>
 									<button
