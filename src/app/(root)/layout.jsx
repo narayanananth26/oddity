@@ -5,7 +5,10 @@ import NextTopLoader from "nextjs-toploader";
 ("@components/AuthProvider/AuthProvider");
 
 export const metadata = {
-	title: "Oddity",
+	title: {
+		default: "Oddity - India's Premier Sports Betting App",
+		template: "%s | Oddity",
+	},
 	description: "Place bets on your favorite sports events.",
 };
 
