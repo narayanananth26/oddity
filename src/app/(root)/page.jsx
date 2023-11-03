@@ -4,7 +4,6 @@ import ImageBanner from "@components/UI/ImageBanner";
 import LoadingImageBanner from "@components/UI/LoadingImageBanner";
 import BannerContent from "@components/UI/BannerContent";
 import UnderConstruction from "@components/UI/UnderConstruction";
-import { apiUrl } from "@utils/constants/links";
 import { HiMapPin, HiMiniUserGroup } from "react-icons/hi2";
 import { getAllEvents } from "@utils/fetch-functions/getAllEvents";
 
@@ -25,7 +24,7 @@ const Home = () => {
 		};
 
 		fetchEvents();
-	}, []);
+	}, [isLoading]);
 
 	let bannerEvent;
 
