@@ -21,7 +21,7 @@ const NavLayout = ({ layout, children }) => {
 
 	return (
 		<nav
-			className={`${layout} absolute top-3 left-3 w-[98%] backdrop-blur-sm rounded py-2 px-10 text-xl ${
+			className={`${layout} absolute top-3 left-3 w-[98%] backdrop-blur-sm rounded-xl py-2 px-10 text-xl ${
 				scrolling ? "bg-red-50 text-black" : " text-red-50"
 			} z-50 h-[70px]`}
 		>
