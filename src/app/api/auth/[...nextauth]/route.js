@@ -92,7 +92,7 @@ const handler = NextAuth({
 					return true;
 				}
 			} catch (error) {
-				console.log("[next-auth]/route.js - handler/callbacks/signIn\n","Error checking if user exists: ", error.message);
+				console.log(error.message);
 				return false;
 			}
 		},
