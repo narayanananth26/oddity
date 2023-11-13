@@ -26,7 +26,7 @@ export const POST = async (request) => {
 			password: hashedPassword,
 			image: "/assets/user-icon.svg",
 		};
-		console.log("register/route.js - POST\n", newUser);
+		console.log(newUser);
 
 		await User.create(newUser);
 
@@ -34,7 +34,7 @@ export const POST = async (request) => {
 			status: 201,
 		});
 	} catch (error) {
-		console.log("register/route.js\n", error);
+		console.log(error);
 		return new NextResponse(error.message, {
 			status: 500,
 		});
