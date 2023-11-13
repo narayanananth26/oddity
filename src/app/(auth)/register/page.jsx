@@ -40,7 +40,7 @@ const Register = () => {
 				setIsLoading(false);
 			}
 		} catch (error) {
-			console.log("register/page.jsx\n", error);
+			console.log(error);
 			setError("An error occurred while registering.");
 			setIsLoading(false);
 		}
