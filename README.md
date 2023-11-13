@@ -1,6 +1,6 @@
 # ODDITY Sports Betting Website
 
-<img src="./public/assets/oddity-logo.png" alt="Oddity Logo" width="500">
+<img src="./public/assets/oddity-logo.svg" alt="Oddity Logo" width="500">
 
 Welcome to Oddity, your premier destination for sports betting. Whether you're an avid sports fan or looking for some excitement, Oddity has you covered. Place your bets and enjoy the thrill of the game!
 
