@@ -6,7 +6,7 @@ const NavLayout = ({ layout, children }) => {
 
 	useEffect(() => {
 		const handleScroll = () => {
-			console.log("NavLayout.jsx\n", "window.scrollY - ", window.scrollY);
+			console.log(window.scrollY);
 			if (window.scrollY > 0) {
 				setScrolling(true);
 			} else {
