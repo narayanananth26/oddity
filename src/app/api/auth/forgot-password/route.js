@@ -40,7 +40,7 @@ export const POST = async (request) => {
 			status: 200,
 		});
 	} catch (error) {
-		console.log("forgot-password/route.js\n", error);
+		console.log(error);
 		return new NextResponse(error.message, {
 			status: 500,
 		});
