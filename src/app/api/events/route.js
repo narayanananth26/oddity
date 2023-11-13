@@ -11,7 +11,7 @@ export const GET = async (request) => {
 			status: 200,
 		});
 	} catch (error) {
-		console.log("events/route.js\n", error);
+		console.log(error);
 		return new NextResponse(error.message, {
 			status: 500,
 		});
