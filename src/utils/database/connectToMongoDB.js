@@ -25,22 +25,14 @@ const connectToMongoDB = async () => {
 		});
 
 		isConnected = true;
-		console.log("connectToMongoDB.js\n", "MongoDB connected");
 	} catch (error) {
-		console.error(
-			"connectToMongoDB.js\n",
-			"MongoDB connection error:",
-			error.message
-		);
+		console.error(error.message);
 	}
 };
 
 // Reconnection handling
 mongoose.connection.on("disconnected", () => {
-	console.log(
-		"connectToMongoDB.js\n",
-		"MongoDB disconnected. Reconnecting..."
-	);
+	console.log("MongoDB disconnected. Reconnecting...");
 	isConnected = false;
 	setTimeout(() => connectToMongoDB(), 5000); // Attempt reconnection after 5 seconds
 });
