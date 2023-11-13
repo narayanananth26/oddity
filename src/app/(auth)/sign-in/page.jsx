@@ -50,7 +50,7 @@ const SignIn = () => {
 				setError(null);
 			}
 		} catch (error) {
-			console.log("sign-in/page.jsx\n", error.message);
+			console.log(error.message);
 		} finally {
 			setIsLoading(false);
 			action.resetForm();
