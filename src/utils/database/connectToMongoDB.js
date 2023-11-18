@@ -24,11 +24,4 @@ const connectToMongoDB = async () => {
 	}
 };
 
-// Reconnection handling
-mongoose.connection.on("disconnected", () => {
-	console.log("MongoDB disconnected. Reconnecting...");
-	isConnected = false;
-	setTimeout(() => connectToMongoDB(), 5000); // Attempt reconnection after 5 seconds
-});
-
 export { connectToMongoDB };
