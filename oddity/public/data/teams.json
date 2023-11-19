@@ -1,0 +1,142 @@
+[
+	{
+		"name": "Chennai Super Kings",
+		"logo": "csk_logo.png",
+		"sport": "Cricket",
+		"home_venue": "M. A. Chidambaram Stadium",
+		"coach": "Stephen Fleming",
+		"players": [
+			"MS Dhoni",
+			"Suresh Raina",
+			"Ravindra Jadeja",
+			"Faf du Plessis"
+		],
+		"win_rate": 60
+	},
+	{
+		"name": "Mumbai Indians",
+		"logo": "mi_logo.png",
+		"sport": "Cricket",
+		"home_venue": "Wankhede Stadium",
+		"coach": "Mahela Jayawardene",
+		"players": [
+			"Rohit Sharma",
+			"Kieron Pollard",
+			"Jasprit Bumrah",
+			"Hardik Pandya"
+		],
+		"win_rate": 62.5
+	},
+	{
+		"name": "Royal Challengers Bangalore",
+		"logo": "rcb_logo.png",
+		"sport": "Cricket",
+		"home_venue": "M. Chinnaswamy Stadium",
+		"coach": "Simon Katich",
+		"players": [
+			"Virat Kohli",
+			"AB de Villiers",
+			"Yuzvendra Chahal",
+			"Glenn Maxwell"
+		],
+		"win_rate": 45.5
+	},
+	{
+		"name": "Kolkata Knight Riders",
+		"logo": "kkr_logo.png",
+		"sport": "Cricket",
+		"home_venue": "Eden Gardens",
+		"coach": "Brendon McCullum",
+		"players": [
+			"Eoin Morgan",
+			"Andre Russell",
+			"Sunil Narine",
+			"Shubman Gill"
+		],
+		"win_rate": 55.2
+	},
+	{
+		"name": "Kings XI Punjab",
+		"logo": "kxip_logo.png",
+		"sport": "Cricket",
+		"home_venue": "Punjab Cricket Association Stadium",
+		"coach": "Anil Kumble",
+		"players": [
+			"KL Rahul",
+			"Mayank Agarwal",
+			"Chris Gayle",
+			"Mohammed Shami"
+		],
+		"win_rate": 42.8
+	},
+	{
+		"name": "Rajasthan Royals",
+		"logo": "rr_logo.png",
+		"sport": "Cricket",
+		"home_venue": "Sawai Mansingh Stadium",
+		"coach": "Kumar Sangakkara",
+		"players": [
+			"Sanju Samson",
+			"Jos Buttler",
+			"Ben Stokes",
+			"Rahul Tewatia"
+		],
+		"win_rate": 48.9
+	},
+	{
+		"name": "Sunrisers Hyderabad",
+		"logo": "srh_logo.png",
+		"sport": "Cricket",
+		"home_venue": "Rajiv Gandhi International Cricket Stadium",
+		"coach": "Trevor Bayliss",
+		"players": [
+			"Kane Williamson",
+			"David Warner",
+			"Rashid Khan",
+			"Bhuvneshwar Kumar"
+		],
+		"win_rate": 53.7
+	},
+	{
+		"name": "Delhi Capitals",
+		"logo": "dc_logo.png",
+		"sport": "Cricket",
+		"home_venue": "Arun Jaitley Stadium",
+		"coach": "Ricky Ponting",
+		"players": [
+			"Shreyas Iyer",
+			"Rishabh Pant",
+			"Kagiso Rabada",
+			"Prithvi Shaw"
+		],
+		"win_rate": 51.4
+	},
+	{
+		"name": "Pune Warriors India",
+		"logo": "pwi_logo.png",
+		"sport": "Cricket",
+		"home_venue": "Sahara Pune Warriors Stadium",
+		"coach": "Allan Donald",
+		"players": [
+			"Yuvraj Singh",
+			"Steve Smith",
+			"Robin Uthappa",
+			"Ashok Dinda"
+		],
+		"win_rate": 37.2
+	},
+	{
+		"name": "Deccan Chargers",
+		"logo": "dc_logo.png",
+		"sport": "Cricket",
+		"home_venue": "Rajiv Gandhi International Cricket Stadium",
+		"coach": "Tom Moody",
+		"players": [
+			"Adam Gilchrist",
+			"Herschelle Gibbs",
+			"RP Singh",
+			"Pragyan Ojha"
+		],
+		"win_rate": 44.6
+	}
+]
