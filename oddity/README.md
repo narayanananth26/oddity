@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ODDITY Sports Betting Website
+
+<img src="./public/assets/oddity-logo.svg" alt="Oddity Logo" width="500">
+
+Welcome to Oddity, your premier destination for sports betting. Whether you're an avid sports fan or looking for some excitement, Oddity has you covered. Place your bets and enjoy the thrill of the game!
+
+## Table of Contents
+
+-   [Features](#features)
+-   [Getting Started](#getting-started)
+    -   [Prerequisites](#prerequisites)
+    -   [Installation](#installation)
+-   [Usage](#usage)
+-   [Contributing](#contributing)
+-   [License](#license)
+
+## Features
+
+-   **Sports Betting:** Place bets on a wide range of sports and events.
+-   **Live Updates:** Stay updated with real-time scores, statistics, and odds.
+-   **User Accounts:** Create and manage your user profile.
+-   **Secure Transactions:** Secure payment processing for deposits and withdrawals.
+-   **Responsive Design:** Access Oddity on various devices, from desktop to mobile.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Before you start using Oddity, make sure you have the following prerequisites:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-   **Node.js:** Ensure that you have Node.js installed on your system. You can download it [here](https://nodejs.org/).
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. **Clone the repository:**
 
-## Learn More
+    ```bash
+    git clone https://github.com/narayanananth26/oddity.git
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+2. **Navigate to the project directory:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    ```bash
+    cd oddity
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+3. **Install the required dependencies:**
 
-## Deploy on Vercel
+    ```bash
+    npm install
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Set up your environment variables by creating a `.env` file based on the provided [.env.example](.env.example). Update the values accordingly.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Usage
+
+5. **Start the application:**
+
+    ```bash
+    npm run dev
+    ```
+
+-   Access Oddity in your web browser at `http://localhost:3000`.
+
+-   Create a user account or log in to get started.
+
+-   Browse the available sports and events, place bets, and enjoy the excitement of sports betting.
+
+## Contributing
+
+We welcome contributions from the community. If you'd like to contribute to Oddity, please follow our [Contribution Guidelines](CONTRIBUTING.md).
