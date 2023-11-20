@@ -1,5 +1,11 @@
+import Button from "@components/Buttons/Button";
+import EventBetsPlaced from "@components/UI/EventBetsPlaced";
+import EventVenue from "@components/UI/EventVenue";
+import EventOdds from "@components/UI/EventOdds";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
+import { GoDotFill } from "react-icons/go";
 
 const EventCard = ({ event, teams }) => {
 	const homeTeam = teams.find((team) => team._id === event.home_team);
@@ -42,52 +48,71 @@ const EventCard = ({ event, teams }) => {
 	return (
 		event &&
 		teams.length && (
-			<div className="bg-white rounded-lg overflow-hidden shadow-md">
-				{console.log(homeTeam)}
-				<div className="p-4">
-					<div className="flex space-x-4">
-						<Image
-							src={homeTeam.logo}
-							alt={homeTeam.name}
-							width={200}
-							height={200}
-						/>
-						<div className="flex-center text-red-500 text-xl">
-							vs
-						</div>
-						<Image
-							src={awayTeam.logo}
-							alt={awayTeam.name}
-							width={200}
-							height={200}
-						/>
+			<div className="bg-white rounded-lg overflow-hidden border border-slate-300 shadow-md p-4 flex flex-col gap-3">
+				{event.status === "live" ? (
+					<div className="flex-center bg-red-500 text-sm text-white text-center uppercase font-bold px-2 py-2.5 rounded-sm w-fit h-5">
+						<GoDotFill />
+						live
 					</div>
-					<h2 className="text-xl font-semibold mb-2">{event.name}</h2>
-					<p className="text-gray-600">{event.description}</p>
-
-					<div className="mt-4 flex justify-between">
-						<div>
-							<p className="text-gray-700">
-								Date:{" "}
-								{new Date(event.date).toLocaleDateString(
-									"en-GB",
-									{
-										day: "2-digit",
-										month: "2-digit",
-										year: "numeric",
-									}
-								)}
-							</p>
-							<p className="text-gray-700">
-								Countdown: {countdown.days}d {countdown.hours}h{" "}
-								{countdown.minutes}m {countdown.seconds}s
-							</p>
-							<p className="text-gray-700">
-								Venue: {event.venue.name}
-							</p>
+				) : (
+					<div className="flex-between h-5">
+						<div className="text-gray-700">
+							{new Date(event.date).toLocaleDateString("en-GB", {
+								day: "2-digit",
+								month: "2-digit",
+								year: "numeric",
+							})}
 						</div>
+						{event.status === "scheduled" ? (
+							<div className="mt-4 flex justify-between">
+								<div>
+									{countdown.minutes || countdown.seconds ? (
+										<p className="text-gray-700">
+											{countdown.days}d {countdown.hours}h{" "}
+											{countdown.minutes}m{" "}
+											{countdown.seconds}s
+										</p>
+									) : null}
+								</div>
+							</div>
+						) : (
+							<div>{event.status}</div>
+						)}
 					</div>
+				)}
+				<h2 className="text-xl text-red-500 font-semibold mb-2 h-20 text-center">
+					{event.name}
+				</h2>
+				<div className="flex-center space-x-4 h-16">
+					<Image
+						src={homeTeam.logo}
+						alt={homeTeam.name}
+						width={100}
+						height={100}
+						className="rounded-full bg-slate-200 p-4"
+					/>
+					<div className="flex-center text-red-500 text-xl">vs</div>
+					<Image
+						src={awayTeam.logo}
+						alt={awayTeam.name}
+						width={100}
+						height={100}
+						className="rounded-full bg-slate-200 p-4"
+					/>
 				</div>
+				<EventOdds
+					className="grid grid-cols-3 gap-3 text-base uppercase font-bold w-full mt-10"
+					oddClassName="flex-center rounded-md p-3 bg-slate-200"
+					odds={event.odds}
+				/>
+				<div className="flex-between text-slate-500">
+					<EventVenue venue={event.venue} />
+					<EventBetsPlaced betsPlaced={event.bets_placed} />
+				</div>
+
+				<Link href="/sportsbook" className="flex-end">
+					<Button style="primary">Place bet</Button>
+				</Link>
 			</div>
 		)
 	);
