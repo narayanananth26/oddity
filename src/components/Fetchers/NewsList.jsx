@@ -1,5 +1,6 @@
 "use client";
 import NewsCard from "@components/Cards/NewsCard";
+import LoadingNewsCard from "@components/Loading/LoadingNewsCard";
 import { apiUrl } from "@utils/constants/links";
 import { useEffect, useState } from "react";
 
@@ -43,7 +44,12 @@ const NewsList = () => {
 
 			<div className="grid grid-cols-4 gap-2 px-10">
 				{isLoading ? (
-					<div>Loading...</div>
+					<>
+						<LoadingNewsCard />
+						<LoadingNewsCard />
+						<LoadingNewsCard />
+						<LoadingNewsCard />
+					</>
 				) : (
 					newsList.articles.map((article, index) => (
 						<NewsCard key={index} article={article} />
