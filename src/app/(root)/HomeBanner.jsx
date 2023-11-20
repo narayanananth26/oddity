@@ -1,11 +1,14 @@
 "use client";
 import LoadingImageBanner from "@components/UI/LoadingImageBanner";
+import EventOdds from "@components/UI/EventOdds";
 import Overlay from "@components/UI/Overlay";
 import { apiUrl } from "@utils/constants/links";
 import Image from "next/image";
 import Link from "next/link";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { HiChevronRight, HiMapPin, HiMiniUserGroup } from "react-icons/hi2";
+import EventVenue from "@components/UI/EventVenue";
+import EventBetsPlaced from "@components/UI/EventBetsPlaced";
 
 const getLiveEvents = async () => {
 	const res = await fetch(`${apiUrl}/events/live`, {
@@ -68,39 +71,14 @@ const HomeBanner = () => {
 				<h1 className="text-center text-7xl uppercase text-red-500 font-bold">
 					{event.description}
 				</h1>
-				<h3 className="flex-center gap-5 text-base text-white uppercase font-bold">
-					<span className="flex-center gap-2">
-						<HiMapPin />
-						{event.venue?.name || ""}
-					</span>
-					<span className="flex-center gap-2">
-						<HiMiniUserGroup />
-						{event.bets_placed}
-					</span>
-				</h3>
-				<h4 className="flex-center gap-2 text-base text-white uppercase font-bold">
-					<span
-						className={`${
-							event.odds?.home_team > event.odds?.away_team
-								? "before:content-['-'] text-red-500"
-								: "before:content-['+'] text-green-500"
-						}`}
-					>
-						{event.odds?.home_team}
-					</span>
-					<span className="before:content-['+']">
-						{event.odds?.draw}
-					</span>
-					<span
-						className={`${
-							event.odds?.away_team > event.odds?.home_team
-								? "before:content-['-'] text-red-500"
-								: "before:content-['+'] text-green-500"
-						}`}
-					>
-						{event.odds?.away_team}
-					</span>
-				</h4>
+				<div className="flex-center gap-5 text-base text-white uppercase font-bold">
+					<EventVenue venue={event.venue} />
+					<EventBetsPlaced betsPlaced={event.bets_placed} />
+				</div>
+				<EventOdds
+					className="flex-center gap-2 text-base text-white uppercase font-bold"
+					odds={event.odds}
+				/>
 			</div>
 
 			<div
