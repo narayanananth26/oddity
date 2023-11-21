@@ -59,7 +59,7 @@ const EventsBanner = () => {
 	return isLoading ? (
 		<LoadingImageBanner />
 	) : event ? (
-		<section className="w-screen h-screen bg-white overflow-hidden flex flex-col relative pt-24">
+		<section className="w-screen h-screen bg-slate-100 overflow-hidden flex flex-col relative pt-24">
 			<div className="flex-center mb-5 gap-10">
 				<h2 className="flex-center text-slate-500 text-xl uppercase font-bold">
 					{event.name}
@@ -106,10 +106,6 @@ const EventsBanner = () => {
 				<h1 className="text-center text-7xl uppercase text-red-500 font-bold">
 					{event.description}
 				</h1>
-				<div className="flex-center gap-5 text-base text-white uppercase font-bold">
-					<EventVenue venue={event.venue} />
-					<EventBetsPlaced betsPlaced={event.bets_placed} />
-				</div>
 			</div>
 
 			<div
