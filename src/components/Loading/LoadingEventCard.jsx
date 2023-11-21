@@ -8,7 +8,7 @@ import Skeleton from "@mui/material/Skeleton";
 function LoadingSkeleton() {
 	return (
 		<Card sx={{ maxWidth: 345, m: 2 }}>
-			<div className="flex-center gap-10 pt-10">
+			<div className="flex-center gap-10 pt-10 p-5">
 				<Skeleton
 					animation="wave"
 					variant="circular"
