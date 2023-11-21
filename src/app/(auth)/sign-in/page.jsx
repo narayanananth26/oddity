@@ -6,7 +6,7 @@ import FormField from "@components/Form/FormField";
 import FormLayout from "@components/Form/FormLayout";
 import Button from "@components/Buttons/Button";
 import Or from "@components/UI/Or";
-import RedirectTo from "@components/UI/RedirectTo";
+import RedirectTo from "@components/Buttons/RedirectTo";
 import {
 	forgotPasswordLink,
 	homeLink,
