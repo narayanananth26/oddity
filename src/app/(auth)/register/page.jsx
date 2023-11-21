@@ -7,7 +7,7 @@ import { registerValidation } from "@utils/validations/authValidation";
 import FormLayout from "@components/Form/FormLayout";
 import FormField from "@components/Form/FormField";
 import Button from "@components/Buttons/Button";
-import RedirectTo from "@components/UI/RedirectTo";
+import RedirectTo from "@components/Buttons/RedirectTo";
 import { registerLink, signInLink } from "@utils/constants/links";
 
 const Register = () => {
