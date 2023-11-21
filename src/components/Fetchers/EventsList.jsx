@@ -44,33 +44,21 @@ const EventsList = () => {
 		};
 		fetchAllEventsAndTeams();
 	}, []);
-	console.log(events, teams);
+
 	return (
-		<>
-			<div className="flex-center relative mt-24 mb-16 text-5xl uppercase text-red-500 bg-white w-full">
-				<span className="flex-center border-b-2 border-slate-300 w-3/4 h-0" />
-				<span className="flex-center absolute right-1/2 translate-x-1/2 z-10 h-fit bg-inherit px-3">
-					Events
-				</span>
-			</div>
-			<div className="grid grid-cols-3 gap-2 px-20">
-				{isLoading ? (
-					<>
-						<LoadingEventCard />
-						<LoadingEventCard />
-						<LoadingEventCard />
-					</>
-				) : (
-					events.map((event) => (
-						<EventCard
-							key={event._id}
-							event={event}
-							teams={teams}
-						/>
-					))
-				)}
-			</div>
-		</>
+		<div className="grid grid-cols-3 gap-4 px-20">
+			{isLoading ? (
+				<>
+					<LoadingEventCard />
+					<LoadingEventCard />
+					<LoadingEventCard />
+				</>
+			) : (
+				events.map((event) => (
+					<EventCard key={event._id} event={event} teams={teams} />
+				))
+			)}
+		</div>
 	);
 };
 
