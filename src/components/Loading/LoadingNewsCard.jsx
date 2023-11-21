@@ -31,9 +31,9 @@ LoadingSkeleton.propTypes = {
 	loading: PropTypes.bool,
 };
 
-export default function LoadingNewsCard() {
+export default function LoadingNewsCard({ className }) {
 	return (
-		<div>
+		<div className={className}>
 			<LoadingSkeleton />
 		</div>
 	);
