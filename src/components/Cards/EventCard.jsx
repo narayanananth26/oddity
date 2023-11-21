@@ -4,51 +4,17 @@ import EventVenue from "@components/UI/EventVenue";
 import EventOdds from "@components/UI/EventOdds";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { GoDotFill } from "react-icons/go";
+import Countdown from "@components/UI/Countdown";
 
 const EventCard = ({ event, teams }) => {
 	const homeTeam = teams.find((team) => team._id === event.home_team);
 	const awayTeam = teams.find((team) => team._id === event.away_team);
-	const calculateCountdown = () => {
-		const eventDate = new Date(event.date);
-		const currentDate = new Date();
-
-		if (eventDate > currentDate) {
-			const timeDifference = eventDate.getTime() - currentDate.getTime();
-			const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-			const hours = Math.floor(
-				(timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-			);
-			const minutes = Math.floor(
-				(timeDifference % (1000 * 60 * 60)) / (1000 * 60)
-			);
-			const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-			return { days, hours, minutes, seconds };
-		} else {
-			// Event date is in the past, return countdown values as 0
-			return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-		}
-
-		return { days, hours, minutes, seconds };
-	};
-
-	const [countdown, setCountdown] = useState(calculateCountdown);
-
-	useEffect(() => {
-		const intervalId = setInterval(() => {
-			setCountdown(calculateCountdown());
-		}, 1000);
-
-		// Cleanup the interval on component unmount
-		return () => clearInterval(intervalId);
-	}, [event.date]); // Include event.date in the dependency array
 
 	return (
 		event &&
 		teams.length && (
-			<div className="bg-white rounded-lg overflow-hidden border border-slate-300 shadow-md p-4 flex flex-col gap-3">
+			<div className="bg-slate-200 rounded-lg overflow-hidden border border-slate-300 shadow-md p-2 flex flex-col gap-3">
 				{event.status === "live" ? (
 					<div className="flex-center bg-red-500 text-sm text-white text-center uppercase font-bold px-2 py-2.5 rounded-sm w-fit h-5">
 						<GoDotFill />
@@ -65,22 +31,14 @@ const EventCard = ({ event, teams }) => {
 						</div>
 						{event.status === "scheduled" ? (
 							<div className="mt-4 flex justify-between">
-								<div>
-									{countdown.minutes || countdown.seconds ? (
-										<p className="text-gray-700">
-											{countdown.days}d {countdown.hours}h{" "}
-											{countdown.minutes}m{" "}
-											{countdown.seconds}s
-										</p>
-									) : null}
-								</div>
+								<Countdown date={event.date} />
 							</div>
 						) : (
 							<div>{event.status}</div>
 						)}
 					</div>
 				)}
-				<h2 className="text-xl text-red-500 font-semibold mb-2 h-20 text-center">
+				<h2 className="text uppercase bg-white rounded text-slate-600 font-semibold mb-4 text-center h-16 flex-center">
 					{event.name}
 				</h2>
 				<div className="flex-center space-x-4 h-16">
@@ -89,7 +47,7 @@ const EventCard = ({ event, teams }) => {
 						alt={homeTeam.name}
 						width={100}
 						height={100}
-						className="rounded-full bg-slate-200 p-4"
+						className="rounded-full bg-white p-4"
 					/>
 					<div className="flex-center text-red-500 text-xl">vs</div>
 					<Image
@@ -97,15 +55,15 @@ const EventCard = ({ event, teams }) => {
 						alt={awayTeam.name}
 						width={100}
 						height={100}
-						className="rounded-full bg-slate-200 p-4"
+						className="rounded-full bg-white p-4"
 					/>
 				</div>
 				<EventOdds
-					className="grid grid-cols-3 gap-3 text-base uppercase font-bold w-full mt-10"
-					oddClassName="flex-center rounded-md p-3 bg-slate-200"
+					className="grid grid-cols-3 gap-1 text-base uppercase font-bold w-full mt-5"
+					oddClassName="flex-center rounded-md p-3 bg-white"
 					odds={event.odds}
 				/>
-				<div className="flex-between text-slate-500">
+				<div className="flex-between">
 					<EventVenue venue={event.venue} />
 					<EventBetsPlaced betsPlaced={event.bets_placed} />
 				</div>
