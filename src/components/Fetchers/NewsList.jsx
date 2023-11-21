@@ -21,7 +21,7 @@ const NewsList = () => {
 		const fetchNewsList = async () => {
 			try {
 				const data = await getAllNews();
-				setNewsList(data);
+				setNewsList(data.articles);
 			} catch (error) {
 				console.log(error);
 				setError(error);
@@ -34,29 +34,20 @@ const NewsList = () => {
 	}, []);
 
 	return (
-		<>
-			<div className="flex-center relative mt-24 mb-16 text-5xl uppercase text-red-500 bg-white w-full">
-				<span className="flex-center border-b-2 border-slate-300 w-3/4 h-0" />
-				<span className="flex-center absolute right-1/2 translate-x-1/2 z-10 h-fit bg-inherit px-3">
-					Latest News
-				</span>
-			</div>
-
-			<div className="grid grid-cols-4 gap-2 px-10">
-				{isLoading ? (
-					<>
-						<LoadingNewsCard />
-						<LoadingNewsCard />
-						<LoadingNewsCard />
-						<LoadingNewsCard />
-					</>
-				) : (
-					newsList.articles.map((article, index) => (
-						<NewsCard key={index} article={article} />
-					))
-				)}
-			</div>
-		</>
+		<div className="grid grid-cols-4 gap-2 px-10">
+			{isLoading ? (
+				<>
+					<LoadingNewsCard />
+					<LoadingNewsCard />
+					<LoadingNewsCard />
+					<LoadingNewsCard />
+				</>
+			) : (
+				newsList.map((article, index) => (
+					<NewsCard key={index} article={article} />
+				))
+			)}
+		</div>
 	);
 };
 
