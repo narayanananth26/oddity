@@ -41,10 +41,7 @@ const handler = NextAuth({
 						throw new Error("User not found!");
 					}
 				} catch (error) {
-					console.log(
-						"[next-auth]/route.js - handler/providers/CredentialsProvider\n",
-						error
-					);
+					console.log(error);
 					return null;
 				}
 			},
@@ -60,15 +57,12 @@ const handler = NextAuth({
 				if (sessionUser) {
 					session.user.username = sessionUser.username;
 					session.user.image = sessionUser.image;
+					session.user.id = sessionUser._id;
 				}
 
 				return session;
 			} catch (error) {
-				console.error(
-					"[next-auth]/route.js - handler/callbacks/session\n",
-					"Session callback error:",
-					error
-				);
+				console.error("Session callback error:", error);
 				return session;
 			}
 		},
