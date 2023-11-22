@@ -8,9 +8,13 @@ export const PATCH = async (req, { params: { userId } }) => {
 
 		await connectToMongoDB();
 
-		await User.findByIdAndUpdate(userId, { $push: { bets: betId } });
+		console.log("betId", betId);
 
-		return new NextResponse("User bets updated successfully!", {
+		const user = await User.findByIdAndUpdate(userId, {
+			$push: { bets: betId },
+		});
+
+		return new NextResponse(JSON.stringify(user), {
 			status: 200,
 		});
 	} catch (error) {
