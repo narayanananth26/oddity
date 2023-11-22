@@ -27,7 +27,7 @@ const Carousel = ({ children }) => {
 		<div className="relative pb-2">
 			<div
 				id="carousel-container"
-				className="flex overflow-x-auto overflow-y-hidden space-x-4 p-4 scrollbar-thin scrollbar-thumb-red-500 scrollbar-track-red-50"
+				className="flex overflow-x-auto overflow-y-hidden space-x-4 p-4 pb-6 scrollbar-thin scrollbar-thumb-red-500 scrollbar-track-red-50"
 				style={{ scrollBehavior: "smooth" }}
 			>
 				{children}
