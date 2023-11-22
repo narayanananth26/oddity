@@ -1,4 +1,4 @@
-const Odds = ({ odds, className, oddClassName }) => {
+const EventOdds = ({ odds, className, oddClassName }) => {
 	return (
 		<div className={className}>
 			<span
@@ -26,4 +26,4 @@ const Odds = ({ odds, className, oddClassName }) => {
 	);
 };
 
-export default Odds;
+export default EventOdds;
