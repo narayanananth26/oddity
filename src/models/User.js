@@ -20,6 +20,12 @@ const userSchema = new mongoose.Schema(
 			default: "/assets/user-icon.svg",
 			required: true,
 		},
+		bets: [
+			{
+				type: mongoose.Schema.Types.ObjectId,
+				ref: "Bet",
+			},
+		],
 	},
 	{ timestamps: true }
 );
