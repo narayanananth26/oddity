@@ -115,7 +115,10 @@ const EventsListCarousel = () => {
 						oddClassName="flex-center rounded-md p-3 bg-white"
 						odds={event.odds}
 					/>
-					<Link href="/sportsbook" className="flex-end mt-5">
+					<Link
+						href={`/sportsbook/${event.slug}`}
+						className="flex-end mt-5"
+					>
 						<Button style="primary">Place bet</Button>
 					</Link>
 				</div>
