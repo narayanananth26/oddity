@@ -66,8 +66,9 @@ const BettingForm = ({ eventData: { event, homeTeam, awayTeam } }) => {
 
 			console.log("bet placed");
 
-			const betData = await betResponse.text();
-			console.log("betData", betData);
+			let betData = await betResponse.text();
+			betData = JSON.parse(betData);
+			console.log("betData", betData._id);
 
 			const userResponse = await fetch(`${apiUrl}/user/${userId}`, {
 				method: "PATCH",
