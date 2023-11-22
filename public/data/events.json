@@ -17,7 +17,8 @@
 		"status": "completed",
 		"bets_placed": 500,
 		"winner": "652a689a6b60599f6c61a01b",
-		"image": "https://assets.bcci.tv/bcci/photos/1164/7908a06c-0596-47c8-b263-8183f9461734.jpg"
+		"image": "https://assets.bcci.tv/bcci/photos/1164/7908a06c-0596-47c8-b263-8183f9461734.jpg",
+		"slug": "csk-vs-mi"
 	},
 	{
 		"name": "IPL - Royal Challengers Bangalore vs. Sunrisers Hyderabad",
@@ -37,7 +38,8 @@
 		"status": "live",
 		"bets_placed": 700,
 		"winner": null,
-		"image": "https://assets.bcci.tv/bcci/photos/1164/7908a06c-0596-47c8-b263-8183f9461734.jpg"
+		"image": "https://assets.bcci.tv/bcci/photos/1164/7908a06c-0596-47c8-b263-8183f9461734.jpg",
+		"slug": "rcb-vs-srh"
 	},
 	{
 		"name": "IPL - Royal Challengers Bangalore vs. Chennai Super Kings",
@@ -57,7 +59,8 @@
 		"status": "scheduled",
 		"bets_placed": 300,
 		"winner": null,
-		"image": "https://assets.bcci.tv/bcci/photos/1164/7908a06c-0596-47c8-b263-8183f9461734.jpg"
+		"image": "https://assets.bcci.tv/bcci/photos/1164/7908a06c-0596-47c8-b263-8183f9461734.jpg",
+		"slug": "rcb-vs-csk"
 	},
 	{
 		"name": "IPL - Sunrisers Hyderabad vs. Mumbai Indians",
@@ -77,7 +80,8 @@
 		"status": "postponed",
 		"bets_placed": 450,
 		"winner": null,
-		"image": "https://assets.bcci.tv/bcci/photos/1164/7908a06c-0596-47c8-b263-8183f9461734.jpg"
+		"image": "https://assets.bcci.tv/bcci/photos/1164/7908a06c-0596-47c8-b263-8183f9461734.jpg",
+		"slug": "srh-vs-mi"
 	},
 	{
 		"name": "IPL - Kings XI Punjab vs. Rajasthan Royals",
@@ -97,7 +101,8 @@
 		"status": "completed",
 		"bets_placed": 550,
 		"winner": "652a689a6b60599f6c61a020",
-		"image": "https://assets.bcci.tv/bcci/photos/1164/7908a06c-0596-47c8-b263-8183f9461734.jpg"
+		"image": "https://assets.bcci.tv/bcci/photos/1164/7908a06c-0596-47c8-b263-8183f9461734.jpg",
+		"slug": "kxip-vs-rr"
 	},
 	{
 		"name": "IPL - Kolkata Knight Riders vs. Delhi Capitals",
@@ -117,7 +122,8 @@
 		"status": "live",
 		"bets_placed": 400,
 		"winner": null,
-		"image": "https://assets.bcci.tv/bcci/photos/1164/7908a06c-0596-47c8-b263-8183f9461734.jpg"
+		"image": "https://assets.bcci.tv/bcci/photos/1164/7908a06c-0596-47c8-b263-8183f9461734.jpg",
+		"slug": "kkr-vs-dc"
 	},
 	{
 		"name": "IPL - Pune Warriors India vs. Deccan Chargers",
@@ -137,7 +143,8 @@
 		"status": "canceled",
 		"bets_placed": 620,
 		"winner": null,
-		"image": "https://assets.bcci.tv/bcci/photos/1164/7908a06c-0596-47c8-b263-8183f9461734.jpg"
+		"image": "https://assets.bcci.tv/bcci/photos/1164/7908a06c-0596-47c8-b263-8183f9461734.jpg",
+		"slug": "pwi-vs-dcr"
 	},
 	{
 		"name": "IPL - Rajasthan Royals vs. Kings XI Punjab",
@@ -157,6 +164,7 @@
 		"status": "scheduled",
 		"bets_placed": 420,
 		"winner": null,
-		"image": "https://assets.bcci.tv/bcci/photos/1164/7908a06c-0596-47c8-b263-8183f9461734.jpg"
+		"image": "https://assets.bcci.tv/bcci/photos/1164/7908a06c-0596-47c8-b263-8183f9461734.jpg",
+		"slug": "rr-vs-kxip"
 	}
 ]
