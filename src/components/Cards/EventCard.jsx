@@ -68,7 +68,7 @@ const EventCard = ({ event, teams }) => {
 					<EventBetsPlaced betsPlaced={event.bets_placed} />
 				</div>
 
-				<Link href="/sportsbook" className="flex-end">
+				<Link href={`/sportsbook/${event.slug}`} className="flex-end">
 					<Button style="primary">Place bet</Button>
 				</Link>
 			</div>
