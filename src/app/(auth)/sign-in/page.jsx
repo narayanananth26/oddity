@@ -58,96 +58,94 @@ const SignIn = () => {
 	};
 
 	return (
-		<>
-			<FormLayout
-				initialValues={{
-					emailOrUsername: "",
-					password: "",
-				}}
-				validationSchema={signInValidation}
-				onSubmit={handleSubmit}
-			>
-				{error && (
-					<div className="flex-between text-red-500 text-md bg-red-100 p-2 rounded-lg">
-						{error}
-						<button
-							onClick={(e) => {
-								e.preventDefault();
-								setError(false);
-							}}
-							className="hover:text-red-800 active:text-red-500"
-						>
-							<HiXMark />
-						</button>
-					</div>
-				)}
-				<FormField
-					label={<HiUser fill="gray" />}
-					type="text"
-					name="emailOrUsername"
-					placeholder="Email or Username"
-				/>
-				<FormField
-					label={<HiLockClosed fill="gray" />}
-					type="password"
-					name="password"
-					placeholder="Password"
-				/>
+		<FormLayout
+			initialValues={{
+				emailOrUsername: "",
+				password: "",
+			}}
+			validationSchema={signInValidation}
+			onSubmit={handleSubmit}
+		>
+			{error && (
+				<div className="flex-between text-red-500 text-md bg-red-100 p-2 rounded-lg">
+					{error}
+					<button
+						onClick={(e) => {
+							e.preventDefault();
+							setError(false);
+						}}
+						className="hover:text-red-800 active:text-red-500"
+					>
+						<HiXMark />
+					</button>
+				</div>
+			)}
+			<FormField
+				label={<HiUser fill="gray" />}
+				type="text"
+				name="emailOrUsername"
+				placeholder="Email or Username"
+			/>
+			<FormField
+				label={<HiLockClosed fill="gray" />}
+				type="password"
+				name="password"
+				placeholder="Password"
+			/>
 
-				<RedirectTo
-					linkText="Forgot password?"
-					redirectTo={forgotPasswordLink.route}
-				/>
-				<Button type="submit" style="primary" disabled={isLoading}>
-					{isLoading ? (
-						<CircularProgress
-							sx={{
-								color: "#ffffff",
-							}}
-							size={25}
+			<RedirectTo
+				linkText="Forgot password?"
+				redirectTo={forgotPasswordLink.route}
+			/>
+			<Button type="submit" style="primary" disabled={isLoading}>
+				{isLoading ? (
+					<CircularProgress
+						sx={{
+							color: "#ffffff",
+						}}
+						size={25}
+					/>
+				) : (
+					"Sign In"
+				)}
+			</Button>
+			<Or />
+			<Button
+				type="button"
+				style="secondary"
+				onClick={(e) => {
+					e.preventDefault();
+					setIsLoading(true);
+					signIn("google", { callbackUrl: homeLink.route });
+				}}
+				disabled={isLoading}
+			>
+				{isLoading ? (
+					<CircularProgress
+						sx={{
+							color: "#ef4444",
+						}}
+						size={25}
+					/>
+				) : (
+					<>
+						<Image
+							src="/assets/google-logo.svg"
+							alt="Google logo"
+							width={18}
+							height={18}
+							className="my-auto"
 						/>
-					) : (
-						"Sign In"
-					)}
-				</Button>
-				<Or />
-				<Button
-					type="button"
-					style="secondary"
-					onClick={(e) => {
-						e.preventDefault();
-						setIsLoading(true);
-						signIn("google", { callbackUrl: homeLink.route });
-					}}
-					disabled={isLoading}
-				>
-					{isLoading ? (
-						<CircularProgress
-							sx={{
-								color: "#ef4444",
-							}}
-							size={25}
-						/>
-					) : (
-						<>
-							<Image
-								src="/assets/google-logo.svg"
-								alt="Google logo"
-								width={18}
-								height={18}
-								className="my-auto"
-							/>
-							<span className="py-1">Continue with Google</span>
-						</>
-					)}
-				</Button>
-				<RedirectTo
-					text="Not yet a member?"
-					linkText="Register here"
-					redirectTo={registerLink.route}
-				/>
-			</FormLayout>
-		</>
+						<span className="py-1">Continue with Google</span>
+					</>
+				)}
+			</Button>
+			<RedirectTo
+				text="Not yet a member?"
+				linkText="Register here"
+				redirectTo={registerLink.route}
+			/>
+		</FormLayout>
 	);
 };
 
