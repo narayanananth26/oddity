@@ -112,7 +112,7 @@ const EventsBanner = () => {
 				className={`flex-center text-3xl font-bold uppercase absolute bottom-0 left-1/2 transform -translate-x-1/2 px-6 py-3 mt-10`}
 			>
 				<Link
-					href="/sportsbook"
+					href={`/sportsbook/${event.slug}`}
 					className="relative pb-2 underline_animation after:bg-red-500 after:h-1"
 				>
 					Wager Now
