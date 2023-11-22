@@ -78,11 +78,14 @@ const eventSchema = new mongoose.Schema({
 	winner: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "Team",
-		default: null,
 	},
 	image: {
 		type: String,
 		required: [true, "Event image is required."],
+	},
+	slug: {
+		type: String,
+		required: [true, "Event slug is required."],
 	},
 });
 
