@@ -4,7 +4,8 @@ import { NextResponse } from "next/server";
 
 export const POST = async (req, res) => {
 	try {
-		const { user, event, stakeAmount, payout } = await req.json();
+		const { user, event, stakeAmount, payout, selection } =
+			await req.json();
 
 		await connectToMongoDB();
 
@@ -13,6 +14,7 @@ export const POST = async (req, res) => {
 			event,
 			stake_amount: stakeAmount,
 			payout,
+			selection,
 		};
 
 		console.log(newBet);
