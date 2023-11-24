@@ -13,8 +13,8 @@ export const leftNavLinks = [
 		label: "Events",
 	},
 	{
-		route: "/athletes",
-		label: "Athletes",
+		route: "/teams",
+		label: "Teams",
 	},
 ];
 
