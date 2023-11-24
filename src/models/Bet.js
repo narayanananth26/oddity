@@ -11,6 +11,19 @@ const betSchema = new mongoose.Schema({
 		ref: "Event",
 		required: [true, "Event reference is required."],
 	},
+	selection: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: "Team",
+		required: [true, "Selection is required."],
+	},
+	status: {
+		type: String,
+		enum: {
+			values: ["scheduled", "live", "completed"],
+			message: "Invalid event status.",
+		},
+		default: "scheduled",
+	},
 	stake_amount: {
 		type: Number,
 		required: [true, "Stake amount is required."],
