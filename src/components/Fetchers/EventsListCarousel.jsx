@@ -57,12 +57,12 @@ const EventsListCarousel = () => {
 			))}
 		</>
 	) : (
-		events.map((event) => {
+		events.map((event, index) => {
 			const homeTeam = teams.find((team) => team._id === event.home_team);
 			const awayTeam = teams.find((team) => team._id === event.away_team);
 			return (
 				<div
-					key={event}
+					key={index}
 					className="w-[300px] h-fit rounded-lg bg-slate-200 flex-shrink-0 transition-transform transform hover:scale-110 border border-slate-300 shadow-md p-4 flex flex-col"
 				>
 					{event.status === "live" ? (
