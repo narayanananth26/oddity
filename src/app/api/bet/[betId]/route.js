@@ -6,11 +6,9 @@ export const PATCH = async (req, { params: { betId } }) => {
 	try {
 		const { stakeAmount, payout } = await req.json();
 		await connectToMongoDB();
-		const updatedBet = await Bet.findByIdAndUpdate(
-			betId,
-			{ $set: { stake_amount: stakeAmount, payout } },
-			{ new: true }
-		);
+		const updatedBet = await Bet.findByIdAndUpdate(betId, {
+			$set: { stake_amount: stakeAmount, payout },
+		});
 
 		return new NextResponse(JSON.stringify(updatedBet), {
 			status: 200,
