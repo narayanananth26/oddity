@@ -4,7 +4,7 @@ const EventVenue = ({ venue, className }) => {
 	return (
 		<span className={`flex-center gap-2 ${className}`}>
 			<HiMapPin />
-			{venue?.name || ""}
+			{venue || ""}
 		</span>
 	);
 };
