@@ -1,11 +1,9 @@
-import UnderConstruction from "@components/UI/UnderConstruction";
 import HomeBanner from "@app/(root)/HomeBanner";
-import EventsList from "@components/Fetchers/EventsList";
-import NewsList from "@components/Fetchers/NewsList";
 import EventsListCarousel from "@components/Fetchers/EventsListCarousel";
 import Carousel from "@components/UI/Carousel";
-import { Card } from "@mui/material";
 import HomeNews from "@components/Fetchers/HomeNews";
+import Footer from "@components/UI/Footer";
+import Logo from "@components/UI/Logo";
 
 const Home = () => {
 	return (
@@ -27,7 +25,7 @@ const Home = () => {
 				</span>
 			</div>
 			<HomeNews />
-			<UnderConstruction />
+			<Footer />
 		</>
 	);
 };
