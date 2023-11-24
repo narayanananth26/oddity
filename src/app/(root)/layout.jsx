@@ -18,7 +18,7 @@ const RootLayout = ({ children }) => {
 			<body>
 				<NextTopLoader color={"#ef4444"} showSpinner={false} />
 				<AuthProvider>
-					<div className="max-w-screen-xl min-h-screen flex flex-col h-screen font-oswald">
+					<div className="max-w-screen-xl min-h-screen flex flex-col h-screen font-oswald scrollbar-none overflow-x-hidden">
 						<RootNav />
 						<main className="overflow-x-hidden overflow-y-scroll scrollbar-thin scrollbar-thumb-red-500 scrollbar-track-red-50">
 							{children}
