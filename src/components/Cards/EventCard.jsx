@@ -8,8 +8,10 @@ import { GoDotFill } from "react-icons/go";
 import Countdown from "@components/UI/Countdown";
 
 const EventCard = ({ event, teams, className }) => {
-	const homeTeam = teams.find((team) => team._id === event.home_team);
-	const awayTeam = teams.find((team) => team._id === event.away_team);
+	const homeTeam = teams.find((team) => team._id === event?.home_team);
+	const awayTeam = teams.find((team) => team._id === event?.away_team);
+
+	console.log("Events", event);
 
 	return (
 		event &&
@@ -70,7 +72,7 @@ const EventCard = ({ event, teams, className }) => {
 					<EventBetsPlaced betsPlaced={event.bets_placed} />
 				</div>
 
-				<Link href={`/sportsbook/${event.slug}`} className="flex-end">
+				<Link href={`/sportsbook/${event._id}`} className="flex-end">
 					<Button style="primary">Place bet</Button>
 				</Link>
 			</div>
