@@ -20,6 +20,19 @@ const userSchema = new mongoose.Schema(
 			default: "/assets/user-icon.svg",
 			required: true,
 		},
+		balance: {
+			type: Number,
+			default: 0,
+			required: true,
+		},
+		role: {
+			type: String,
+			enum: {
+				values: ["user", "admin"],
+			},
+			default: "user",
+			required: true,
+		},
 		bets: [
 			{
 				type: mongoose.Schema.Types.ObjectId,
