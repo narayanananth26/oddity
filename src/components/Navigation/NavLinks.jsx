@@ -42,6 +42,7 @@ const NavLinks = ({ links, pathname, positioning }) => {
 							className="flex-center gap-2 cursor-pointer"
 							style={{ position: "relative" }} // Set relative positioning
 						>
+							{/* {console.log(session)} */}
 							<Image
 								src={session?.user.image}
 								width={37}
@@ -57,6 +58,9 @@ const NavLinks = ({ links, pathname, positioning }) => {
 									<Link href="/profile">
 										<span className="block px-4 py-2 text-black hover:bg-gray-100">
 											{session?.user.username}
+										</span>
+										<span className="block px-4 py-2 text-black hover:bg-gray-100">
+											$ {session?.user.balance}
 										</span>
 									</Link>
 									<button
