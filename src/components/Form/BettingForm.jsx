@@ -6,6 +6,7 @@ import EventOdds from "@components/UI/EventOdds";
 import { apiUrl } from "@utils/constants/links";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const BettingForm = ({ eventData: { event, homeTeam, awayTeam } }) => {
@@ -16,8 +17,9 @@ const BettingForm = ({ eventData: { event, homeTeam, awayTeam } }) => {
 	useEffect(() => {
 		// Calculate initial estimated payout based on initial stake amount and odds
 		if (selectedTeam && stakeAmount) {
+			let amount = Number(stakeAmount);
 			const odds = event.odds[selectedTeam];
-			const payout = stakeAmount + (stakeAmount / odds) * 100;
+			const payout = amount + (amount / odds) * 100;
 			setEstimatedPayout(payout.toFixed(2));
 		} else {
 			setEstimatedPayout(0);
@@ -28,8 +30,9 @@ const BettingForm = ({ eventData: { event, homeTeam, awayTeam } }) => {
 
 		// Calculate estimated payout based on odds and stake amount
 		if (stakeAmount) {
+			let amount = Number(stakeAmount);
 			const odds = event.odds[team];
-			const payout = stakeAmount + (stakeAmount / odds) * 100;
+			const payout = amount + (amount / odds) * 100;
 			setEstimatedPayout(payout.toFixed(2));
 		} else {
 			setEstimatedPayout(0);
@@ -42,7 +45,8 @@ const BettingForm = ({ eventData: { event, homeTeam, awayTeam } }) => {
 		// Calculate estimated payout based on odds and stake amount
 		if (selectedTeam && amount) {
 			const odds = event.odds[selectedTeam];
-			const payout = (amount / 100) * odds;
+			const numAmount = Number(amount);
+			const payout = numAmount + (numAmount / 100) * odds;
 			setEstimatedPayout(payout.toFixed(2));
 		} else {
 			setEstimatedPayout(0);
@@ -80,6 +84,14 @@ const BettingForm = ({ eventData: { event, homeTeam, awayTeam } }) => {
 
 			const userData = await userResponse.text();
 			console.log(userData);
+
+			const eventResponse = await fetch(`/api/event/${eventId}`, {
+				method: "PATCH",
+				headers: { "Content-Type": "application/json" },
+			});
+
+			const eventData = await eventResponse.text();
+			console.log(eventData);
 		} catch (error) {
 			console.error("Error placing bet:", error);
 		}
@@ -90,7 +102,7 @@ const BettingForm = ({ eventData: { event, homeTeam, awayTeam } }) => {
 	}
 
 	return (
-		<div className="w-fit h-fit flex-center bg-red-500 mt-20 rounded-xl px-6 py-10 gap-5">
+		<div className="w-fit h-fit flex-center bg-red-500 mt-20 rounded-xl px-6 py-10 gap-5 box-shadow-red ">
 			<div className="flex-center gap-10 mb-5 flex-col">
 				<div className="flex-center gap-10">
 					<div className="bg-white rounded-xl p-10">
@@ -150,14 +162,14 @@ const BettingForm = ({ eventData: { event, homeTeam, awayTeam } }) => {
 						${estimatedPayout}
 					</span>
 				</div>
-				<div className="flex-center">
+				<Link href={"/sportsbook"} className="flex-center">
 					<Button
 						onClick={() => placeBet(session.user.id, event._id)}
 						style="primary"
 					>
 						Place Bet
 					</Button>
-				</div>
+				</Link>
 			</div>
 		</div>
 	);
