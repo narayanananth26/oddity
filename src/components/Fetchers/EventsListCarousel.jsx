@@ -116,7 +116,7 @@ const EventsListCarousel = () => {
 						odds={event.odds}
 					/>
 					<Link
-						href={`/sportsbook/${event.slug}`}
+						href={`/sportsbook/${event._id}`}
 						className="flex-end mt-5"
 					>
 						<Button style="primary">Place bet</Button>
