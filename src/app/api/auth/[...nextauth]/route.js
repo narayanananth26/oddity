@@ -4,6 +4,7 @@ import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
+import { startSession } from "mongoose";
 
 const handler = NextAuth({
 	providers: [
@@ -54,10 +55,13 @@ const handler = NextAuth({
 					email: session.user.email,
 				});
 
+				// console.log("sessionuser", sessionUser);
 				if (sessionUser) {
 					session.user.username = sessionUser.username;
 					session.user.image = sessionUser.image;
 					session.user.id = sessionUser._id;
+					session.user.balance = sessionUser.balance;
+					session.user.role = sessionUser.role;
 				}
 
 				return session;
@@ -76,6 +80,7 @@ const handler = NextAuth({
 						email: profile.email,
 						username: profile.name.replace(" ", "").toLowerCase(),
 						image: profile.picture,
+						balance: 500,
 					});
 					return true;
 				} else {
