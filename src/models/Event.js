@@ -69,7 +69,7 @@ const eventSchema = new mongoose.Schema({
 			values: ["scheduled", "live", "completed", "postponed", "canceled"],
 			message: "Invalid event status.",
 		},
-		default: "Scheduled",
+		default: "scheduled",
 	},
 	number_of_bets_placed: {
 		type: Number,
