@@ -7,14 +7,16 @@ import Link from "next/link";
 import { GoDotFill } from "react-icons/go";
 import Countdown from "@components/UI/Countdown";
 
-const EventCard = ({ event, teams }) => {
+const EventCard = ({ event, teams, className }) => {
 	const homeTeam = teams.find((team) => team._id === event.home_team);
 	const awayTeam = teams.find((team) => team._id === event.away_team);
 
 	return (
 		event &&
 		teams.length && (
-			<div className="bg-slate-200 rounded-lg overflow-hidden border border-slate-300 shadow-md p-2 flex flex-col gap-3">
+			<div
+				className={`${className} bg-slate-200 rounded-lg overflow-hidden border border-slate-300 shadow-md p-2 flex flex-col gap-3`}
+			>
 				{event.status === "live" ? (
 					<div className="flex-center bg-red-500 text-sm text-white text-center uppercase font-bold px-2 py-2.5 rounded-sm w-fit h-5">
 						<GoDotFill />
@@ -64,7 +66,7 @@ const EventCard = ({ event, teams }) => {
 					odds={event.odds}
 				/>
 				<div className="flex-between">
-					<EventVenue venue={event.venue} />
+					<EventVenue venue={event.venue?.name} />
 					<EventBetsPlaced betsPlaced={event.bets_placed} />
 				</div>
 
