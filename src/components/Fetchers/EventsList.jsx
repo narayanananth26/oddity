@@ -64,6 +64,8 @@ const EventsList = () => {
 		fetchAllEventsAndTeams();
 	}, [filter, sort]);
 
+	console.log("events", events);
+
 	return (
 		<>
 			<div className="flex-end mx-10 my-5">
