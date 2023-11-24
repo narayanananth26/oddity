@@ -1,3 +1,5 @@
+import UserBets from "@components/Fetchers/UserBets";
+import Footer from "@components/UI/Footer";
 import UnderConstruction from "@components/UI/UnderConstruction";
 
 export const metadata = {
@@ -5,7 +7,12 @@ export const metadata = {
 };
 
 const page = () => {
-	return <UnderConstruction />;
+	return (
+		<>
+			<UserBets />
+			<Footer />
+		</>
+	);
 };
 
 export default page;
