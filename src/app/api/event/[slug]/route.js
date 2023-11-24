@@ -27,3 +27,24 @@ export const GET = async (req, { params }) => {
 		});
 	}
 };
+
+export const PATCH = async (req, { params: { slug } }) => {
+	try {
+		await connectToMongoDB();
+		const event = await Event.findByIdAndUpdate(
+			{ _id: slug },
+			{
+				$inc: { bets_placed: 1 },
+			}
+		);
+
+		return new NextResponse(JSON.stringify(event), {
+			status: 200,
+		});
+	} catch (error) {
+		console.log(error);
+		return new NextResponse(error.message, {
+			status: 500,
+		});
+	}
+};
