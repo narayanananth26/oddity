@@ -26,6 +26,7 @@ export const POST = async (request) => {
 			password: hashedPassword,
 			image: "/assets/user-icon.svg",
 			bets: [],
+			balance: 500,
 		};
 		console.log(newUser);
 
