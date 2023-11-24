@@ -1,5 +1,6 @@
 import NewsList from "@components/Fetchers/NewsList";
 import NewsBanner from "@components/Fetchers/NewsBanner";
+import Footer from "@components/UI/Footer";
 
 const News = () => {
 	return (
@@ -12,6 +13,7 @@ const News = () => {
 				</span>
 			</div>
 			<NewsList />
+			<Footer />
 		</div>
 	);
 };
