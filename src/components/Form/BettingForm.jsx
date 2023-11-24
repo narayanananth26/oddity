@@ -1,19 +1,20 @@
 "use client";
 
 import Button from "@components/Buttons/Button";
-import EventBetsPlaced from "@components/UI/EventBetsPlaced";
 import EventOdds from "@components/UI/EventOdds";
 import { apiUrl } from "@utils/constants/links";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const BettingForm = ({ eventData: { event, homeTeam, awayTeam } }) => {
+const BettingForm = ({ eventData: { event, homeTeam, awayTeam }, eventId }) => {
 	const [selectedTeam, setSelectedTeam] = useState("home_team");
 	const [stakeAmount, setStakeAmount] = useState(500);
 	const [estimatedPayout, setEstimatedPayout] = useState(0);
 	const { data: session, status: sessionStatus } = useSession();
+	const [error, setError] = useState("");
+	const router = useRouter();
 	useEffect(() => {
 		// Calculate initial estimated payout based on initial stake amount and odds
 		if (selectedTeam && stakeAmount) {
@@ -55,6 +56,20 @@ const BettingForm = ({ eventData: { event, homeTeam, awayTeam } }) => {
 
 	const placeBet = async (userId, eventId) => {
 		try {
+			console.log("placing...");
+			const numAmount = Number(stakeAmount);
+
+			const team =
+				selectedTeam === "home_team" ? homeTeam._id : awayTeam._id;
+			// Check if user has sufficient funds
+			if (session.user.balance < numAmount) {
+				setError("Insufficient funds.");
+
+				setStakeAmount(500);
+				setSelectedTeam("home_team");
+				setEstimatedPayout(0);
+				return;
+			}
 			const betResponse = await fetch("/api/bet", {
 				method: "POST",
 				headers: {
@@ -63,6 +78,7 @@ const BettingForm = ({ eventData: { event, homeTeam, awayTeam } }) => {
 				body: JSON.stringify({
 					user: userId,
 					event: eventId,
+					selection: team,
 					stakeAmount,
 					payout: estimatedPayout,
 				}),
@@ -72,18 +88,17 @@ const BettingForm = ({ eventData: { event, homeTeam, awayTeam } }) => {
 
 			let betData = await betResponse.text();
 			betData = JSON.parse(betData);
-			console.log("betData", betData._id);
 
 			const userResponse = await fetch(`${apiUrl}/user/${userId}`, {
 				method: "PATCH",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({
+					balance: session.user.balance - numAmount,
 					betId: betData._id,
 				}),
 			});
 
 			const userData = await userResponse.text();
-			console.log(userData);
 
 			const eventResponse = await fetch(`/api/event/${eventId}`, {
 				method: "PATCH",
@@ -91,7 +106,7 @@ const BettingForm = ({ eventData: { event, homeTeam, awayTeam } }) => {
 			});
 
 			const eventData = await eventResponse.text();
-			console.log(eventData);
+			router.push("/sportsbook");
 		} catch (error) {
 			console.error("Error placing bet:", error);
 		}
@@ -100,6 +115,8 @@ const BettingForm = ({ eventData: { event, homeTeam, awayTeam } }) => {
 	if (sessionStatus === "loading") {
 		return <p>Loading...</p>;
 	}
+
+	console.log("BettingForm", event);
 
 	return (
 		<div className="w-fit h-fit flex-center bg-red-500 mt-20 rounded-xl px-6 py-10 gap-5 box-shadow-red ">
@@ -132,6 +149,11 @@ const BettingForm = ({ eventData: { event, homeTeam, awayTeam } }) => {
 				/>
 			</div>
 			<div className="bg-white rounded-lg gap-4 flex flex-col p-10">
+				{error !== "" ? (
+					<p className="flex-center text-red-500 h-5">{error}</p>
+				) : (
+					<p className="h-5"></p>
+				)}
 				<h2 className="w-full flex-center">Betting</h2>
 				<div className="flex-center gap-2">
 					<label className="w-40">Select Team:</label>
@@ -162,14 +184,12 @@ const BettingForm = ({ eventData: { event, homeTeam, awayTeam } }) => {
 						${estimatedPayout}
 					</span>
 				</div>
-				<Link href={"/sportsbook"} className="flex-center">
-					<Button
-						onClick={() => placeBet(session.user.id, event._id)}
-						style="primary"
-					>
-						Place Bet
-					</Button>
-				</Link>
+				<Button
+					onClick={() => placeBet(session.user.id, eventId)}
+					style="primary"
+				>
+					Place Bet
+				</Button>
 			</div>
 		</div>
 	);
