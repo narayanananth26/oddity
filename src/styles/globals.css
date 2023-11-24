@@ -35,3 +35,10 @@
 .flex-between {
 	@apply flex justify-between items-center;
 }
+
+.box-shadow-red {
+	box-shadow: 0 0 50px rgba(239, 68, 68);
+}
+.box-shadow-red-sm {
+	box-shadow: 0 0 20px rgba(100 116 139);
+}
