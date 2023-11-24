@@ -107,67 +107,81 @@ const UserBets = () => {
 						<LoadingEventCard />
 					</>
 				) : (
-					userBets.map((bet) => (
-						<div
-							key={bet._id}
-							className="bg-slate-100 p-5 rounded-lg text-black"
-						>
-							<p className="text-lg uppercase">
-								{bet.event.name}
-							</p>
-							<p className="text-red-500">
-								<span className="text-black">Stake:</span>{" "}
-								{bet.stake_amount}
-							</p>
-							<p className="border-t-2 border-dotted py-3 mt-3 text-green-400 border-black">
-								<span className="text-black">Payout:</span>{" "}
-								{bet.payout}
-							</p>
-							{changingAmountId === bet._id ? (
-								<div className="flex gap-2 mt-3">
-									<input
-										type="number"
-										value={newStakeAmount}
-										onChange={(e) =>
-											setNewStakeAmount(e.target.value)
-										}
-										className="rounded-lg border border-slate-400 p-1.5 focus:outline-none w-24 h-fit pl-3"
-									/>
+					userBets.map((bet) => {
+						if (bet.status !== "completed")
+							return (
+								<div
+									key={bet._id}
+									className="bg-slate-100 p-5 rounded-lg text-black"
+								>
+									<p className="text-lg uppercase">
+										{bet.event?.name}
+									</p>
+									<p className="text-red-500">
+										<span className="text-black">
+											Stake:
+										</span>{" "}
+										{bet.stake_amount}
+									</p>
+									<p className="border-t-2 border-dotted py-3 mt-3 text-green-400 border-black">
+										<span className="text-black">
+											Payout:
+										</span>{" "}
+										{bet.payout}
+									</p>
+									{changingAmountId === bet._id ? (
+										<div className="flex gap-2 mt-3">
+											<input
+												type="number"
+												value={newStakeAmount}
+												onChange={(e) =>
+													setNewStakeAmount(
+														e.target.value
+													)
+												}
+												className="rounded-lg border border-slate-400 p-1.5 focus:outline-none w-24 h-fit pl-3"
+											/>
+											<Button
+												onClick={() =>
+													handleSaveNewAmount(
+														bet._id,
+														bet.payout,
+														bet.stake_amount
+													)
+												}
+												style="primary"
+											>
+												Save
+											</Button>
+											<Button
+												onClick={
+													handleCancelChangeAmount
+												}
+												style="secondary"
+											>
+												Cancel
+											</Button>
+										</div>
+									) : (
+										<Button
+											onClick={() =>
+												handleChangeAmount(bet._id)
+											}
+											style="secondary"
+										>
+											Change amount
+										</Button>
+									)}
 									<Button
-										onClick={() =>
-											handleSaveNewAmount(
-												bet._id,
-												bet.payout,
-												bet.stake_amount
-											)
-										}
+										onClick={() => handleDeleteBet(bet._id)}
 										style="primary"
 									>
-										Save
-									</Button>
-									<Button
-										onClick={handleCancelChangeAmount}
-										style="secondary"
-									>
-										Cancel
+										Delete
 									</Button>
 								</div>
-							) : (
-								<Button
-									onClick={() => handleChangeAmount(bet._id)}
-									style="secondary"
-								>
-									Change amount
-								</Button>
-							)}
-							<Button
-								onClick={() => handleDeleteBet(bet._id)}
-								style="primary"
-							>
-								Delete
-							</Button>
-						</div>
-					))
+							);
+						else return null;
+					})
 				)}
 			</div>
 		</>
