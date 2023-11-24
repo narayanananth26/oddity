@@ -1,5 +1,6 @@
 import EventsBanner from "@components/Fetchers/EventsBanner";
 import EventsList from "@components/Fetchers/EventsList";
+import Footer from "@components/UI/Footer";
 import UnderConstruction from "@components/UI/UnderConstruction";
 
 const page = () => {
@@ -13,6 +14,7 @@ const page = () => {
 				</span>
 			</div>
 			<EventsList />
+			<Footer />
 		</>
 	);
 };
