@@ -4,14 +4,15 @@ import { NextResponse } from "next/server";
 
 export const PATCH = async (req, { params: { userId } }) => {
 	try {
-		const { betId } = await req.json();
+		const { betId, balance } = await req.json();
 
 		await connectToMongoDB();
 
-		console.log("betId", betId);
+		console.log("betId");
 
 		const user = await User.findByIdAndUpdate(userId, {
 			$push: { bets: betId },
+			$set: { balance },
 		});
 
 		return new NextResponse(JSON.stringify(user), {
