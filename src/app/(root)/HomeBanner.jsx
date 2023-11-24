@@ -72,7 +72,7 @@ const HomeBanner = () => {
 					{event.description}
 				</h1>
 				<div className="flex-center gap-5 text-base text-white uppercase font-bold">
-					<EventVenue venue={event.venue} />
+					<EventVenue venue={event.venue?.name} />
 					<EventBetsPlaced betsPlaced={event.bets_placed} />
 				</div>
 				<EventOdds
